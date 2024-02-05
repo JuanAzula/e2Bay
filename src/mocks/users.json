@@ -1,0 +1,146 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "random_user_123",
+            "password": "RandomPassword123!",
+            "email": "random_user_123@example.com",
+            "cart": [],
+            "wishlist": [
+                {
+                    "id": "64c9faed738507dddfc7c73c",
+                    "name": "Product_1",
+                    "price": 10,
+                    "stock": 50,
+                    "image": [
+                        "/src/assets/images/productsSmall/product_1.webp",
+                        "/src/assets/images/productsMedium/product_1.webp"
+                    ],
+                    "description": "This is Product 1. It's a great product for your needs.",
+                    "category": "Electronics",
+                    "brand": "Brand_XYZ",
+                    "rating": 4.5,
+                    "reviews": [
+                        {
+                            "id": 1,
+                            "userId": 1,
+                            "rating": 5,
+                            "comment": "Great product! I love it.",
+                            "date": "2023-08-01"
+                        },
+                        {
+                            "id": 2,
+                            "userId": 2,
+                            "rating": 4,
+                            "comment": "Good product. Recommended.",
+                            "date": "2023-08-02"
+                        }
+                    ],
+                    "filters": [
+                        "topsales",
+                        "ait premium"
+                    ]
+                },
+                {
+                    "id": "f91eb86a8f36c973d5e80a7c",
+                    "name": "Product_2",
+                    "price": 15,
+                    "stock": 30,
+                    "image": [
+                        "/src/assets/images/productsSmall/product_2.webp",
+                        "/src/assets/images/productsMedium/product_2.webp"
+                    ],
+                    "description": "Product 2 is a high-quality product with great features.",
+                    "category": "Home & Kitchen",
+                    "brand": "Brand_ABC",
+                    "rating": 4.0,
+                    "reviews": [
+                        {
+                            "id": 3,
+                            "userId": 1,
+                            "rating": 4,
+                            "comment": "Nice product. Worth the price.",
+                            "date": "2023-08-03"
+                        }
+                    ],
+                    "filters": [
+                        "topsales",
+                        "organic"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "john_doe",
+            "password": "JohnDoe123!",
+            "email": "john@example.com",
+            "cart": [
+                {
+                    "id": "64c9faed738507dddfc7c73c",
+                    "name": "Product_1",
+                    "price": 10,
+                    "stock": 50,
+                    "image": [
+                        "/src/assets/images/productsSmall/product_1.webp",
+                        "/src/assets/images/productsMedium/product_1.webp"
+                    ],
+                    "description": "This is Product 1. It's a great product for your needs.",
+                    "category": "Electronics",
+                    "brand": "Brand_XYZ",
+                    "rating": 4.5,
+                    "reviews": [
+                        {
+                            "id": 1,
+                            "userId": 1,
+                            "rating": 5,
+                            "comment": "Great product! I love it.",
+                            "date": "2023-08-01"
+                        },
+                        {
+                            "id": 2,
+                            "userId": 2,
+                            "rating": 4,
+                            "comment": "Good product. Recommended.",
+                            "date": "2023-08-02"
+                        }
+                    ],
+                    "filters": [
+                        "topsales",
+                        "ait premium"
+                    ],
+                    "quantity": 2
+                }
+            ],
+            "wishlist": [
+                {
+                    "id": "f91eb86a8f36c973d5e80a7c",
+                    "name": "Product_2",
+                    "price": 15,
+                    "stock": 30,
+                    "image": [
+                        "/src/assets/images/productsSmall/product_2.webp",
+                        "/src/assets/images/productsMedium/product_2.webp"
+                    ],
+                    "description": "Product 2 is a high-quality product with great features.",
+                    "category": "Home & Kitchen",
+                    "brand": "Brand_ABC",
+                    "rating": 4.0,
+                    "reviews": [
+                        {
+                            "id": 3,
+                            "userId": 1,
+                            "rating": 4,
+                            "comment": "Nice product. Worth the price.",
+                            "date": "2023-08-03"
+                        }
+                    ],
+                    "filters": [
+                        "topsales",
+                        "organic"
+                    ]
+                }
+            ]
+        }
+    ]
+}
