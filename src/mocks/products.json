@@ -2,14 +2,14 @@
     "products": [
         {
             "id": "64c9faed738507dddfc7c73c",
-            "name": "Product_1",
-            "price": 10,
+            "name": "Sony 13TZ",
+            "price": 200,
             "stock": 50,
             "image": [
-                "/src/assets/images/productsSmall/product_1.webp",
+                "../src/assets/beats_solo.webp",
                 "/src/assets/images/productsMedium/product_1.webp"
             ],
-            "description": "This is Product 1. It's a great product for your needs.",
+            "description": "This is Sony 13TZ. It's a great product for your needs.",
             "category": "Electronics",
             "brand": "Brand_XYZ",
             "rating": 4.5,
@@ -36,14 +36,14 @@
         },
         {
             "id": "f91eb86a8f36c973d5e80a7c",
-            "name": "Product_2",
-            "price": 15,
+            "name": "boat b6",
+            "price": 550,
             "stock": 30,
             "image": [
-                "/src/assets/images/productsSmall/product_2.webp",
+                "../src/assets/speaker4.webp",
                 "/src/assets/images/productsMedium/product_2.webp"
             ],
-            "description": "Product 2 is a high-quality product with great features.",
+            "description": "Boat b6 is a high-quality product with great features.",
             "category": "Home & Kitchen",
             "brand": "Brand_ABC",
             "rating": 4.0,

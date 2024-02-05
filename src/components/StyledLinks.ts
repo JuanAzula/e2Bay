@@ -9,6 +9,6 @@ export const StyledLink = styled(Link)`
     transition: all .3s ease;
 
     &:hover {
-        color: #09f;
+        color: #f02d34;
     }
 `

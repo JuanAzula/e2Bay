@@ -6,10 +6,13 @@
 @import url('productsDetail.css');
 
 .header--routes {
-  margin-top: 0;
+  position: fixed;
+  top: 0%;
+  left: 43%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 .login-form {
