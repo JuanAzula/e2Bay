@@ -17,8 +17,8 @@ export const User = ({ users, handleLogout, userId }) => {
                     <p>{user.email}</p>
                 </li>
             </>
-            <button>
-                <StyledLink to="/" onClick={handleLogout}>Logout</StyledLink>
+            <button onClick={handleLogout}>
+                <StyledLink to="/">Logout</StyledLink>
             </button>
         </main>
 
