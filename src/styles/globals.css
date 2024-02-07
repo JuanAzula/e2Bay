@@ -9,8 +9,13 @@ body,
 
 }
 
+
 ::-webkit-scrollbar {
     width: 0px;
+}
+
+h3 {
+    z-index: 20;
 }
 
 a {
@@ -113,15 +118,20 @@ span.text-red {
 
 .products-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     gap: 15px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 100%;
 }
 
 .product-card {
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    gap: 10px;
+    text-align: center;
     transform: scale(1, 1);
     transition: transform 0.5s ease;
     color: #324d67;
@@ -134,7 +144,7 @@ span.text-red {
 
 .product-image {
     border-radius: 15px;
-    background-color: #ebebeb;
+    width: 100%;
     transform: scale(1, 1);
     transition: transform 0.5s ease;
 }
@@ -154,7 +164,7 @@ span.text-red {
     background-color: #dcdcdc;
     border-radius: 15px;
     position: relative;
-    height: 500px;
+    height: 430px;
     line-height: 0.9;
     width: 100%;
 
@@ -242,11 +252,11 @@ span.text-red {
 }
 
 .footer-banner-container {
-    padding: 100px 40px;
+    padding: 50px 40px;
     background-color: #f02d34;
     border-radius: 15px;
     position: relative;
-    height: 400px;
+    height: 349.75px;
     line-height: 1;
     color: white;
     width: 100%;
@@ -255,6 +265,8 @@ span.text-red {
 
 .banner-desc {
     display: flex;
+    height: 100%;
+    margin-bottom: 4%;
     justify-content: space-between;
 }
 
@@ -270,6 +282,10 @@ span.text-red {
     cursor: pointer;
 }
 
+.banner-desc .left {
+    height: 100%;
+}
+
 .banner-desc .left h3 {
     font-weight: 900;
     font-size: 80px;
@@ -281,11 +297,13 @@ span.text-red {
 }
 
 .footer-banner-image {
-    position: absolute;
-    /* top: -35%;
-  left: 8%; */
-    top: -25%;
-    left: 25%;
+    /* position: absolute;
+    left: 8%;
+    top: -15%;
+    left: 35%;
+    */
+    width: 300px;
+    height: 300px;
 }
 
 .banner-desc .right {

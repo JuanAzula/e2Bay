@@ -60,45 +60,42 @@ export default function App() {
     console.log(user)
     window.location.reload();
   }
-
-  if (user) {
-    console.log(user)
-
-    return (
-      <>
-        <BrowserRouter>
-          <header style={{ marginTop: '15px' }} className='header--routes'>
-            <StyledLink to='/' style={{ marginLeft: '10px' }}>
-              Home
-            </StyledLink>
-            <StyledLink to='/products' style={{ marginLeft: '10px' }}>
-              Products
-            </StyledLink>
-            <StyledLink to='/users' style={{ marginLeft: '10px' }}>
-              Users
-            </StyledLink>
-          </header>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products products={products} />} />
-            <Route path='/products/:productId' element={<ProductDetail products={products} />} />
-            <Route path="/users/:userId" element={<UserDetail users={users} />} />
-            <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={user.id} />} />
-          </Routes>
-        </BrowserRouter>
-      </>
-    )
-  } else {
-    return (
-      <LoginForm
-        username={username}
-        password={password}
-        handleSubmit={handleLogin}
-        handleUsernameChange={({ target }) => setUsername(target.value)}
-        handlePasswordChange={({ target }) => setPassword(target.value)}
-      />
-    )
-  }
+  return (
+    <>
+      {
+        user
+          ? <>
+            <BrowserRouter>
+              <header style={{ marginTop: '15px' }} className='header--routes'>
+                <StyledLink to='/' style={{ marginLeft: '10px' }}>
+                  Home
+                </StyledLink>
+                <StyledLink to='/products' style={{ marginLeft: '10px' }}>
+                  Products
+                </StyledLink>
+                <StyledLink to='/users' style={{ marginLeft: '10px' }}>
+                  User
+                </StyledLink>
+              </header>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products products={products} />} />
+                <Route path='/products/:productId' element={<ProductDetail products={products} />} />
+                <Route path="/users/:userId" element={<UserDetail users={users} />} />
+                <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={user.id} />} />
+              </Routes>
+            </BrowserRouter>
+          </>
+          : <LoginForm
+            username={username}
+            password={password}
+            handleSubmit={handleLogin}
+            handleUsernameChange={({ target }) => setUsername(target.value)}
+            handlePasswordChange={({ target }) => setPassword(target.value)}
+          />
+      }
+    </>
+  )
 }
 
 

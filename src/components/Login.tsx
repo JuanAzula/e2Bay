@@ -5,26 +5,30 @@ import { useNavigate } from 'react-router-dom'
 export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }) => {
 
     return (
-        <form onSubmit={handleSubmit} className="login-form">
-            <input
-                className='input'
-                type="text"
-                value={email}
-                id="email"
-                placeholder="Email"
-                onChange={handleUsernameChange}
+        <div className='login--container'>
+            <h1 className='login--header'>E2BAY</h1>
 
-            />
-            <input
-                className='input'
-                type="password"
-                // value={password}
-                password={password}
-                id="password"
-                placeholder="Password"
-                onChange={handlePasswordChange}
-            />
-            <button className='button' type="submit">Login</button>
-        </form>
+            <form onSubmit={handleSubmit} className="login-form">
+                <input
+                    className='input'
+                    type="text"
+                    value={email}
+                    id="email"
+                    placeholder="Email"
+                    onChange={handleUsernameChange}
+
+                />
+                <input
+                    className='input'
+                    type="password"
+                    // value={password}
+                    password={password}
+                    id="password"
+                    placeholder="Password"
+                    onChange={handlePasswordChange}
+                />
+                <button className='button' type="submit">Login</button>
+            </form>
+        </div>
     )
 }

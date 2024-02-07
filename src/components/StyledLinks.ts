@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -10,5 +10,9 @@ export const StyledLink = styled(Link)`
 
     &:hover {
         color: #f02d34;
+    }
+
+    &.active {
+        color: #f02d34 !important;
     }
 `

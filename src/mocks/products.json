@@ -1,7 +1,41 @@
 {
     "products": [
         {
-            "id": "64c9faed738507dddfc7c73c",
+            "id": "64c9faed738507ddfc7c73c",
+            "name": "Apple Vision Pro",
+            "price": 3600,
+            "stock": 50,
+            "image": [
+                "../src/assets/applevisionpro3.png",
+                "/src/assets/images/productsMedium/product_1.webp"
+            ],
+            "description": "This is Apple vision pro. It's a great product for your needs.",
+            "category": "Electronics",
+            "brand": "Brand_XYZ",
+            "rating": 4.5,
+            "reviews": [
+                {
+                    "id": 1,
+                    "userId": 1,
+                    "rating": 5,
+                    "comment": "Great product! I love it.",
+                    "date": "2023-08-01"
+                },
+                {
+                    "id": 2,
+                    "userId": 2,
+                    "rating": 4,
+                    "comment": "Good product. Recommended.",
+                    "date": "2023-08-02"
+                }
+            ],
+            "filters": [
+                "topsales",
+                "ait premium"
+            ]
+        },
+        {
+            "id": "64c9fa738507dddf55c7c73c",
             "name": "Sony 13TZ",
             "price": 200,
             "stock": 50,
@@ -35,7 +69,68 @@
             ]
         },
         {
-            "id": "f91eb86a8f36c973d5e80a7c",
+            "id": "64c9faed738507dddf3c73c",
+            "name": "Iphone 17",
+            "price": 1100,
+            "stock": 50,
+            "image": [
+                "../src/assets/iphoneX.png",
+                "/src/assets/images/productsMedium/product_1.webp"
+            ],
+            "description": "This is Sony 13TZ. It's a great product for your needs.",
+            "category": "Electronics",
+            "brand": "Brand_XYZ",
+            "rating": 4.5,
+            "reviews": [
+                {
+                    "id": 1,
+                    "userId": 1,
+                    "rating": 5,
+                    "comment": "Great product! I love it.",
+                    "date": "2023-08-01"
+                },
+                {
+                    "id": 2,
+                    "userId": 2,
+                    "rating": 4,
+                    "comment": "Good product. Recommended.",
+                    "date": "2023-08-02"
+                }
+            ],
+            "filters": [
+                "topsales",
+                "ait premium"
+            ]
+        },
+        {
+            "id": "f91eb86a8f6c94373d5e80a7c",
+            "name": "boatpods",
+            "price": 550,
+            "stock": 30,
+            "image": [
+                "../src/assets/boatpods.webp",
+                "/src/assets/images/productsMedium/product_2.webp"
+            ],
+            "description": "Boat b6 is a high-quality product with great features.",
+            "category": "Home & Kitchen",
+            "brand": "Brand_ABC",
+            "rating": 4.0,
+            "reviews": [
+                {
+                    "id": 3,
+                    "userId": 1,
+                    "rating": 4,
+                    "comment": "Nice product. Worth the price.",
+                    "date": "2023-08-03"
+                }
+            ],
+            "filters": [
+                "topsales",
+                "discounts"
+            ]
+        },
+        {
+            "id": "f91eb86a8f6c973d5e8780a7c",
             "name": "boat b6",
             "price": 550,
             "stock": 30,

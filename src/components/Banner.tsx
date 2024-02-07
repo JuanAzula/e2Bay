@@ -8,15 +8,15 @@ const Banner = () => {
                 {/* <p className='beats-solo'>Sony 13TZ</p> */}
                 <h3>SpringSummer</h3>
                 <h1>SALE</h1>
-                <img src="../src/assets/beats_solo.webp" alt="headphones"
+                <img src="../src/assets/applevisionpro3.png" alt="headphones"
                     className='hero-banner-image' />
                 <div>
-                    <Link to="/products/64c9faed738507dddfc7c73c">
+                    <Link to="/products">
                         <button type='button'>SEE MORE</button>
                     </Link>
                     <div className='desc'>
-                        <h5>SONY 13TZ</h5>
-                        <p>Best headphones on the market</p>
+                        <h5>APPLE VISION PRO</h5>
+                        <p>The Game Changer arrives to the market</p>
                     </div>
                 </div>
             </div>

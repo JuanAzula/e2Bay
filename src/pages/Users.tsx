@@ -7,20 +7,21 @@ export const User = ({ users, handleLogout, userId }) => {
     const user = users.find((user) => user.id == userId)
 
     return (
-        <main className="users">
-            <h1>Users</h1>
-            <>
-                <li key={user.id}>
+        <>
+            <h1 className="users--header">Users</h1>
+            <main className="users">
+                <img className="users__img" src="../src/assets/user-profile-flatline.svg" alt="user-profile image" />
+                <li key={user.id} className="users__li">
                     <Link to={`/users/${user.id}`}>
                         <h3>{user.name}</h3>
                     </Link>
                     <p>{user.email}</p>
                 </li>
-            </>
-            <button onClick={handleLogout}>
-                <StyledLink to="/">Logout</StyledLink>
-            </button>
-        </main>
+                <button className="users__button" onClick={handleLogout}>
+                    <StyledLink to="/">Logout</StyledLink>
+                </button>
+            </main>
+        </>
 
     )
 }

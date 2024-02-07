@@ -1,0 +1,36 @@
+.users {
+    width: 100%;
+    height: 1200px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 20px;
+    margin-top: 5%;
+}
+
+.users--header {
+    margin-top: 4rem;
+}
+
+.users__img {
+
+    width: 40%;
+    height: 40%;
+}
+
+.users__li {
+    list-style: none;
+}
+
+.users__li h3 {
+    margin-bottom: 1rem;
+}
+
+.users__li p {
+    margin-bottom: 3rem;
+}
+
+.users__button {
+    background-color: rgb(0, 174, 255);
+}

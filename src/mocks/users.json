@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "random_user_123",
-            "password": "RandomPassword123!",
+            "password": "123",
             "email": "random_user_123@example.com",
             "cart": [],
             "wishlist": [

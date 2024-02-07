@@ -12,7 +12,7 @@ export function Products({ products }: { products: ProductsType['products'] }) {
                     return (
                         <li key={product.id}>
                             <StyledLink to={`/products/${product.id}`}>
-                                <img src={product.image[0]}
+                                <img className="products__img" src={product.image[0]}
                                     alt={product.name}
                                 />
                                 <div>
