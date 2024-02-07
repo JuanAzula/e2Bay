@@ -20,13 +20,18 @@ function useCartReducer() {
         payload: product
     })
 
+    const decreaseQuantity = (product) => dispatch({
+        type: 'DECREASE_QUANTITY',
+        payload: product
+    })
 
-    return { state, addToCart, clearCart, removeFromCart }
+
+    return { state, addToCart, clearCart, removeFromCart, decreaseQuantity }
 }
 
 export function CartProvider({ children }) {
 
-    const { state, addToCart, clearCart, removeFromCart } = useCartReducer()
+    const { state, addToCart, clearCart, removeFromCart, decreaseQuantity } = useCartReducer()
 
     return (
         <CartContext.Provider value={
@@ -34,7 +39,8 @@ export function CartProvider({ children }) {
                 cart: state,
                 clearCart,
                 addToCart,
-                removeFromCart
+                removeFromCart,
+                decreaseQuantity
             }
         }>
             {children}

@@ -11,7 +11,8 @@ import { LoginForm } from './components/globals/Login'
 import { useEffect, useState } from 'react'
 import UserDetail from './components/user/UsersDetail'
 import { ProductDetail } from './components/products/ProductDetail'
-import { Navbar } from './components/globals'
+import { Cart, Navbar } from './components/globals'
+import { Toaster } from 'react-hot-toast'
 
 
 
@@ -67,7 +68,19 @@ export default function App() {
         user
           ? <>
             <BrowserRouter>
-              <Navbar user={user} />
+              <Navbar user={user}>
+                <Toaster />
+              </Navbar>
+              <Cart />
+              <button className='cart-icon' type='button' onClick="" style={{ marginLeft: '10px', cursor: 'pointer' }}><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                <path d="M17 17h-11v-14h-2" />
+                <path d="M6 5l14 1l-1 7h-13" />
+              </svg>
+                <span className='cart-item-qty'>{user?.cart?.length}</span>
+              </button>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products products={products} />} />

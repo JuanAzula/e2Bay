@@ -4,6 +4,7 @@
 @import url('products.css');
 @import url('usersDetail.css');
 @import url('productsDetail.css');
+@import url('globals.css');
 
 .header--routes {
   /* position: fixed;
@@ -12,22 +13,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
   z-index: 5;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 845px) {
   .header--routes {
     position: fixed;
-    bottom: 0%;
+    bottom: 0.5%;
     left: 8.7%;
     background-color: rgba(255, 255, 255, 0.838);
-    border-radius: 8px;
+    border-radius: 3px;
     display: flex;
     width: 320px;
     justify-content: center;
     align-items: center;
     z-index: 5;
     border: 0.5px black solid;
+  }
+
+  .cart-icon {
+    position: fixed;
+    top: -740px;
+    left: 320px;
   }
 }

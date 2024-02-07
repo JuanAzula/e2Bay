@@ -13,6 +13,7 @@
             "category": "Electronics",
             "brand": "Brand_XYZ",
             "rating": 4.5,
+            "quantity": 0,
             "reviews": [
                 {
                     "id": 1,
@@ -47,6 +48,7 @@
             "category": "Electronics",
             "brand": "Brand_XYZ",
             "rating": 4.5,
+            "quantity": 0,
             "reviews": [
                 {
                     "id": 1,
@@ -81,6 +83,7 @@
             "category": "Electronics",
             "brand": "Brand_XYZ",
             "rating": 4.5,
+            "quantity": 0,
             "reviews": [
                 {
                     "id": 1,
@@ -115,6 +118,7 @@
             "category": "Home & Kitchen",
             "brand": "Brand_ABC",
             "rating": 4.0,
+            "quantity": 0,
             "reviews": [
                 {
                     "id": 3,
@@ -142,6 +146,7 @@
             "category": "Home & Kitchen",
             "brand": "Brand_ABC",
             "rating": 4.0,
+            "quantity": 0,
             "reviews": [
                 {
                     "id": 3,

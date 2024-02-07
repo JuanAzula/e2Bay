@@ -89,6 +89,9 @@ span.text-red {
 }
 
 .cart-icon {
+    position: fixed;
+    bottom: 30px;
+    left: 95%;
     font-size: 25px;
     color: gray;
     cursor: pointer;
@@ -97,6 +100,7 @@ span.text-red {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    z-index: 0;
 }
 
 .cart-icon:hover {
@@ -263,7 +267,6 @@ span.text-red {
     line-height: 1;
     color: white;
     width: 100%;
-    margin-top: 40px;
 }
 
 .banner-desc {
@@ -284,10 +287,6 @@ span.text-red {
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-}
-
-.banner-desc .left {
-    /* height: 100%; */
 }
 
 .banner-desc .left h3 {
@@ -602,18 +601,21 @@ span.text-red {
 }
 
 .buttons .add-to-cart:hover {
-    transform: scale(1.1, 1.1)
+    background-color: #f02d34;
+    color: white;
 }
 
 .buttons .buy-now {
     width: 200px;
 
     padding: 10px 20px;
-    background-color: #f02d34;
-    color: white;
+    background-color: white;
+    color: #f02d34;
     border: none;
     margin-top: 40px;
     font-size: 18px;
+    border: 1px solid #f02d34;
+
     font-weight: 500;
     cursor: pointer;
     transform: scale(1, 1);
@@ -621,7 +623,8 @@ span.text-red {
 }
 
 .buttons .buy-now:hover {
-    transform: scale(1.1, 1.1)
+    background-color: #f02d34;
+    color: white;
 }
 
 .quantity-desc {
@@ -649,6 +652,15 @@ span.text-red {
     color: rgb(49, 168, 49);
 
 }
+
+/* .quantity-desc .plus:hover,
+.quantity-desc .num:hover,
+.quantity-desc .minus:hover {
+    background-color: #f02d34;
+    color: white;
+} */
+
+
 
 .maylike-products-wrapper {
     margin-top: 120px;
