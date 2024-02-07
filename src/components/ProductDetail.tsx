@@ -22,7 +22,7 @@ export const ProductDetail = ({ products }) => {
                         <>
                             <ul>
                                 <li key={foundProduct.id}>
-                                    <img src={foundProduct.image[0]} alt={foundProduct.name} />
+                                    <img className='product-image' src={foundProduct.image[0]} alt={foundProduct.name} />
                                     <div>
                                         <strong>{foundProduct.name}</strong> <span>${foundProduct.price}</span>
                                     </div>

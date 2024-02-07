@@ -6,11 +6,27 @@
 @import url('productsDetail.css');
 
 .header--routes {
-  position: fixed;
+  /* position: fixed;
   top: 0%;
-  left: 43%;
+  left: 43%; */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
   z-index: 5;
+}
+
+@media screen and (max-width: 800px) {
+  .header--routes {
+    position: fixed;
+    bottom: 0%;
+    left: 8.7%;
+    background-color: rgba(255, 255, 255, 0.838);
+    border-radius: 8px;
+    display: flex;
+    width: 320px;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
 }
