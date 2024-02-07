@@ -43,12 +43,19 @@ export const CartReducer = (state, action) => {
             const productInCartIndex = state.findIndex(item => item.id === actionPayload.id)
 
             if (state[productInCartIndex].quantity > 0) {
-                const newState = structuredClone(state)
+                let newState = structuredClone(state)
                 newState[productInCartIndex].quantity--
+                if (newState[productInCartIndex].quantity === 0) {
+                    newState = state.filter(item => item.id !== actionPayload.id)
+                    return newState
+                }
+
                 updateLocalStorage(newState)
                 return newState
 
-            } else return state
+            } else {
+                return state
+            }
 
 
 

@@ -100,7 +100,7 @@ span.text-red {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    z-index: 0;
+    z-index: 1000;
 }
 
 .cart-icon:hover {

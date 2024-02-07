@@ -16,6 +16,10 @@
   z-index: 5;
 }
 
+.hide {
+  display: none;
+}
+
 @media screen and (max-width: 845px) {
   .header--routes {
     position: fixed;
