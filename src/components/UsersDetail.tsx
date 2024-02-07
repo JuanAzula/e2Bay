@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 export default function UserDetail({ users }) {
     console.log(users)
@@ -30,24 +30,26 @@ export default function UserDetail({ users }) {
 
         return (
             <div>
-                <h1>User Detail</h1>
-                <h3>{foundUser.name}</h3>
+                <h1>Wishlist</h1>
+                {/* <h3>{foundUser.name}</h3>
                 <p>{foundUser.email}</p>
-                <p>{foundUser.cart}</p>
-                <p>User wishlist</p>
+                <p>{foundUser.cart}</p> */}
+                {/* <p>User wishlist</p> */}
                 <ul>
 
                     {foundUser.wishlist.map((product) => {
                         return (
                             <li key={product.id}>
-                                <img src={product.image[0]}
-                                    alt={product.name}
-                                />
-                                <div>
-                                    <strong>{product.name}</strong> - <span>${product.price}</span>
-                                </div>
-                                <p>{product.description}</p>
-                                <span>Stock:{product.stock}</span>
+                                <Link to={`/products/${product.id}`}>
+                                    <img style={{ width: '100px' }} src={product.image[0]}
+                                        alt={product.name}
+                                    />
+                                    <div>
+                                        <strong>{product.name}</strong> - <span>${product.price}</span>
+                                    </div>
+                                    <p>{product.description}</p>
+                                    <span>Stock:{product.stock}</span>
+                                </Link>
                             </li>
                         )
                     })}

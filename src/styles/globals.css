@@ -96,6 +96,7 @@ span.text-red {
     transition: transform .4s ease;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .cart-icon:hover {
@@ -108,8 +109,8 @@ span.text-red {
     font-size: 12px;
     color: #eee;
     background-color: #f02d34;
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 15px;
     border-radius: 50%;
     text-align: center;
     font-weight: 600;

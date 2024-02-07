@@ -12,9 +12,7 @@ export const User = ({ users, handleLogout, userId }) => {
             <main className="users">
                 <img className="users__img" src="../src/assets/user-profile-flatline.svg" alt="user-profile image" />
                 <li key={user.id} className="users__li">
-                    <Link to={`/users/${user.id}`}>
-                        <h3>{user.name}</h3>
-                    </Link>
+                    <h3>{user.name}</h3>
                     <p>{user.email}</p>
                 </li>
                 <button className="users__button" onClick={handleLogout}>

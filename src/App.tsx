@@ -11,6 +11,7 @@ import { LoginForm } from './components/Login'
 import { useEffect, useState } from 'react'
 import UserDetail from './components/UsersDetail'
 import { ProductDetail } from './components/ProductDetail'
+import { Navbar } from './components'
 
 
 
@@ -66,23 +67,14 @@ export default function App() {
         user
           ? <>
             <BrowserRouter>
-              <header style={{ marginTop: '15px' }} className='header--routes'>
-                <StyledLink to='/' style={{ marginLeft: '10px' }}>
-                  Home
-                </StyledLink>
-                <StyledLink to='/products' style={{ marginLeft: '10px' }}>
-                  Products
-                </StyledLink>
-                <StyledLink to='/users' style={{ marginLeft: '10px' }}>
-                  User
-                </StyledLink>
-              </header>
+              <Navbar user={user} />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products products={products} />} />
                 <Route path='/products/:productId' element={<ProductDetail products={products} />} />
                 <Route path="/users/:userId" element={<UserDetail users={users} />} />
                 <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={user.id} />} />
+                <Route path="/wishlist/:userId" element={<UserDetail users={users} />} />
               </Routes>
             </BrowserRouter>
           </>
