@@ -12,7 +12,7 @@ const Banner = () => {
                     className='hero-banner-image' />
                 <div>
                     <Link to="/products">
-                        <button type='button'>SEE MORE</button>
+                        <button className='button' type='button'>SEE MORE</button>
                     </Link>
                     <div className='desc'>
                         <h5>APPLE VISION PRO</h5>

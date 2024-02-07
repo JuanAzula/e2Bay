@@ -27,7 +27,7 @@ export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordCh
                     placeholder="Password"
                     onChange={handlePasswordChange}
                 />
-                <button className='button' type="submit">Login</button>
+                <button className='button' style={{ height: '30px' }} type="submit">Login</button>
             </form>
         </div>
     )

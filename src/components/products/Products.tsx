@@ -1,7 +1,7 @@
 // import './Products.css'
-import { AddToCartIcon } from '../components/Icons.tsx'
-import { ProductsType } from '../interfaces/productsType.ts'
-import { StyledLink } from '../components/StyledLinks.ts'
+import { AddToCartIcon } from '../Icons.tsx'
+import { ProductsType } from '../../interfaces/productsType.ts'
+import { StyledLink } from '../StyledLinks.ts'
 
 export function Products({ products }: { products: ProductsType['products'] }) {
 

@@ -1,7 +1,7 @@
 import { BrowserRouter, Link, Route } from "react-router-dom"
-import { UsersType } from "../interfaces/usersType"
+import { UsersType } from "../../interfaces/usersType"
 import UserDetail from "./UsersDetail"
-import { StyledLink } from "./StyledLinks"
+import { StyledLink } from "../StyledLinks"
 
 export const Users = ({ users, handleLogout }) => {
     return (

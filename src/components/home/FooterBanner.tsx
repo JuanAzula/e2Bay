@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { urlFor } from '../lib/client';
+import { urlFor } from '../../lib/client';
 import { Link } from 'react-router-dom';
 
 const FooterBanner = () => {
@@ -21,7 +21,7 @@ const FooterBanner = () => {
                     <h3>Offer!</h3>
                     <p>30%</p>
                     <Link to="/products/f91eb86a8f6c94373d5e80a7c">
-                        <button type="button">buy now</button>
+                        <button className='button' type="button">buy now</button>
                     </Link>
                 </div>
 

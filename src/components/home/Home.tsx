@@ -1,6 +1,6 @@
 
-import { products } from '../mocks/products.json'
-import { ProductHome, FooterBanner, Banner } from "../components"
+import { products } from '../../mocks/products.json'
+import { ProductHome, FooterBanner, Banner } from ".."
 
 export const Home = () => {
 
