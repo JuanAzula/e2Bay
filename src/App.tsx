@@ -7,11 +7,11 @@ import { StyledLink } from './components/StyledLinks'
 import { Product, ProductsType } from './interfaces/productsType'
 import { User } from './components/user/Users'
 import { Home } from './components/home/Home'
-import { LoginForm } from './components/Login'
+import { LoginForm } from './components/globals/Login'
 import { useEffect, useState } from 'react'
 import UserDetail from './components/user/UsersDetail'
 import { ProductDetail } from './components/products/ProductDetail'
-import { Navbar } from './components'
+import { Navbar } from './components/globals'
 
 
 

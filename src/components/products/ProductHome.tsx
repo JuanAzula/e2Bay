@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyledLink } from '../StyledLinks'
 
 const ProductHome = ({ product }: any) => {

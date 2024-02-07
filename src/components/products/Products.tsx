@@ -1,5 +1,4 @@
 // import './Products.css'
-import { AddToCartIcon } from '../Icons.tsx'
 import { ProductsType } from '../../interfaces/productsType.ts'
 import { StyledLink } from '../StyledLinks.ts'
 

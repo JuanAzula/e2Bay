@@ -1,6 +1,6 @@
 
 import { products } from '../../mocks/products.json'
-import { ProductHome, FooterBanner, Banner } from ".."
+import { ProductHome, FooterBanner, Banner } from "../globals"
 
 export const Home = () => {
 

@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import { users } from '../mocks/users.json'
-import { useNavigate } from 'react-router-dom'
 
 export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }) => {
 

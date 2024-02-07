@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { AddToCartIcon } from "../Icons";
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from "react-icons/ai";
 
 

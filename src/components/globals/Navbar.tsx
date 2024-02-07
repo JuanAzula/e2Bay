@@ -1,5 +1,4 @@
-import React from 'react'
-import { StyledLink } from './StyledLinks'
+import { StyledLink } from '../StyledLinks'
 
 const Navbar = ({ user }: { user: any }) => {
     return (
