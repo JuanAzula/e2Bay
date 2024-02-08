@@ -25,7 +25,6 @@ export const ProductDetail = () => {
                     </>
                     :
                     <div>
-                        <h1>Product Detail</h1>
                         <>
                             <ul>
                                 <li className="product-detail-container" key={foundProduct.id}>
@@ -65,7 +64,7 @@ export const ProductDetail = () => {
                                         <div className="buttons">
                                             <button className="add-to-cart"
                                                 type="button"
-                                                onClick="">Add to Cart</button>
+                                                onClick={() => addToCart(foundProduct)}>Add to Cart</button>
                                             <button className="buy-now"
                                                 type="button">Buy Now</button>
                                         </div>

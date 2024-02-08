@@ -9,10 +9,10 @@ export const StyledLink = styled(NavLink)`
     transition: all .3s ease;
 
     &:hover {
-        color: #f02d34;
+        color: #f20179;
     }
 
     &.active {
-        color: #f02d34 !important;
+        color: #f20179 !important;
     }
 `

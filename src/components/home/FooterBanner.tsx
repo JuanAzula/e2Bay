@@ -18,7 +18,7 @@ const FooterBanner = () => {
                     <h3>Offer!</h3>
                     <p>30%</p>
                     <Link to="/products/f91eb86a8f6c94373d5e80a7c">
-                        <button className='button--footer' type="button">buy now</button>
+                        <button style={{ color: '#f20179' }} className='button--footer' type="button">buy now</button>
                     </Link>
                 </div>
 

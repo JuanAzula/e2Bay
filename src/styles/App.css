@@ -5,6 +5,7 @@
 @import url('usersDetail.css');
 @import url('productsDetail.css');
 @import url('globals.css');
+@import url('cart.css');
 
 .header--routes {
   /* position: fixed;
