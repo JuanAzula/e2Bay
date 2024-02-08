@@ -5,7 +5,6 @@ export const User = ({ users, handleLogout, userId }) => {
 
     return (
         <>
-            <h1 className="users--header">Users</h1>
             <main className="users">
                 <img className="users__img" src="../src/assets/user-profile-flatline.svg" alt="user-profile image" />
                 <li key={user.id} className="users__li">

@@ -27,7 +27,6 @@ function CartItem({ image, price, name, quantity, addToCart, decreaseQuantity, r
             <button className="cart--remove" onClick={() => removeFromCart(product)}>
                 ❌🛒
             </button><br />
-            <button className="cart--buy" type="button">Buy now</button>
         </li>
     )
 }
@@ -48,18 +47,23 @@ const Cart = () => {
 
     const cartSvgId = useId()
 
+    const cartContainerId = useId()
 
-    const checkProductInCart = (product) => {
-        return cart.some(item => item.id === product.id)
+    const checkProductInCart = () => {
+        return cart.some()
     }
 
     const handleClickOutsideCart = (event) => {
-        if (cartWrapperRef.current && !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
+        if (cartWrapperRef.current && event.target !== document.getElementById(cartContainerId)
+            && !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
             setCartVisible(false);
         }
     };
 
     useEffect(() => {
+        if (!checkProductInCart) {
+            setCartVisible(false);
+        }
         document.addEventListener('click', handleClickOutsideCart);
         return () => {
             document.removeEventListener('click', handleClickOutsideCart);
@@ -71,7 +75,7 @@ const Cart = () => {
     return (
         <div>
             <button className='cart-icon' type='button' style={{ marginLeft: '10px', cursor: 'pointer' }}>
-                <svg id={cartSvgId} onClick={toggleCartVisibility} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg id={cartSvgId} onClick={toggleCartVisibility} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" stroke-width="0.9" stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                     <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -80,7 +84,7 @@ const Cart = () => {
                 </svg>
                 <span className='cart-item-qty'>{cart?.length}</span>
             </button>
-            <main className={cartVisible ? 'cart-wrapper' : 'hide'}>
+            <main id={cartContainerId} className={cartVisible ? 'cart-wrapper' : 'hide'}>
                 <label className="cart-button" htmlFor={cartCheckboxId}>
                 </label>
                 <input type="checkbox" id={cartCheckboxId} hidden />
@@ -99,6 +103,8 @@ const Cart = () => {
 
                             </>
                         ))}
+                        <button className="cart--buy" type="button">Buy now</button>
+
                     </ul>
                 </aside>
             </main>

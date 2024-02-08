@@ -8,7 +8,7 @@ export function FiltersProvider({ children }) {
     const [filters, setFilters] = useState({
         category: 'all',
         minPrice: 0,
-        minRating: 0
+        // minRating: 0
     }
     )
     return (

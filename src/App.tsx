@@ -1,4 +1,4 @@
-import { products } from './mocks/products.json'
+import { products as initialProducts } from './mocks/products.json'
 import { users } from './mocks/users.json'
 import './styles/App.css'
 import { Products } from './components/products/Products'
@@ -13,10 +13,16 @@ import UserDetail from './components/user/UsersDetail'
 import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
 import { Toaster } from 'react-hot-toast'
+import { useFilters } from './hooks/useFilters'
 
 
 
 export default function App() {
+
+  const [products] = useState(initialProducts)
+  const { filterProducts } = useFilters()
+  console.log(products)
+  const filteredProducts = filterProducts(products)
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -68,13 +74,11 @@ export default function App() {
         user
           ? <>
             <BrowserRouter>
-              <Navbar user={user}>
-                <Toaster />
-              </Navbar>
+              <Navbar user={user} />
               <Cart />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/products" element={<Products products={products} />} />
+                <Route path="/products" element={<Products products={filteredProducts} />} />
                 <Route path='/products/:productId' element={<ProductDetail products={products} />} />
                 <Route path="/users/:userId" element={<UserDetail users={users} />} />
                 <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={user.id} />} />

@@ -10,7 +10,7 @@
                 "/src/assets/images/productsMedium/product_1.webp"
             ],
             "description": "This is Apple vision pro. It's a great product for your needs.",
-            "category": "Electronics",
+            "category": "headsets",
             "brand": "Brand_XYZ",
             "rating": 4.5,
             "quantity": 0,
@@ -45,7 +45,7 @@
                 "/src/assets/images/productsMedium/product_1.webp"
             ],
             "description": "This is Sony 13TZ. It's a great product for your needs.",
-            "category": "Electronics",
+            "category": "headphones",
             "brand": "Brand_XYZ",
             "rating": 4.5,
             "quantity": 0,
@@ -80,7 +80,7 @@
                 "/src/assets/images/productsMedium/product_1.webp"
             ],
             "description": "This is Sony 13TZ. It's a great product for your needs.",
-            "category": "Electronics",
+            "category": "smartphones",
             "brand": "Brand_XYZ",
             "rating": 4.5,
             "quantity": 0,
@@ -115,7 +115,7 @@
                 "/src/assets/images/productsMedium/product_2.webp"
             ],
             "description": "Boat b6 is a high-quality product with great features.",
-            "category": "Home & Kitchen",
+            "category": "headphones",
             "brand": "Brand_ABC",
             "rating": 4.0,
             "quantity": 0,
@@ -143,7 +143,7 @@
                 "/src/assets/images/productsMedium/product_2.webp"
             ],
             "description": "Boat b6 is a high-quality product with great features.",
-            "category": "Home & Kitchen",
+            "category": "speakers",
             "brand": "Brand_ABC",
             "rating": 4.0,
             "quantity": 0,

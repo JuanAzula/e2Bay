@@ -3,6 +3,7 @@ import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from "react-
 import ProductHome from "./ProductHome";
 import { useCart } from "../../hooks/useCart";
 import { products } from "../../mocks/products.json";
+import { Filters } from "./Filters";
 
 
 export const ProductDetail = () => {

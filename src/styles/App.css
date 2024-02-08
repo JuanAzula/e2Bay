@@ -7,6 +7,10 @@
 @import url('globals.css');
 @import url('cart.css');
 
+body {
+  /* background: #f1f1f1; */
+}
+
 .header--routes {
   /* position: fixed;
   top: 0%;
@@ -19,6 +23,12 @@
 
 .hide {
   display: none;
+}
+
+.cart-icon svg {
+  background-color: #f20179;
+  color: white;
+  border-radius: 8px;
 }
 
 @media screen and (max-width: 845px) {

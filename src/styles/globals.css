@@ -6,7 +6,6 @@ body,
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     box-sizing: border-box;
-
 }
 
 
@@ -111,8 +110,9 @@ span.text-red {
     position: absolute;
     right: -8px;
     font-size: 12px;
-    color: #eee;
-    background-color: #f20179;
+    color: #f20179;
+    background-color: white;
+    border: 0.05px black solid;
     width: 14px;
     height: 15px;
     border-radius: 50%;
@@ -349,16 +349,26 @@ span.text-red {
 .cart-container {
     margin-top: 24%;
     height: 200px;
-    width: 100%;
+    width: 69%;
     display: flex;
+    background-color: rgba(255, 255, 255, 0.768);
     flex-direction: column;
     margin-left: 7%;
+    border-radius: 8px;
     /* align-items: center; */
     /* background-color: white; */
     float: right;
     /* padding: 40px 10px; */
     /* position: relative; */
 
+}
+
+.cart-container img {
+    align-self: center;
+}
+
+.cart-container div {
+    align-self: center;
 }
 
 .footer-container {
