@@ -71,7 +71,7 @@ export default function App() {
               <Navbar user={user}>
                 <Toaster />
               </Navbar>
-              <Cart user={user} />
+              <Cart />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products products={products} />} />
