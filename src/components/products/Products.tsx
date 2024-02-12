@@ -1,14 +1,18 @@
 // import './Products.css'
-import { FiltersProvider } from '../../context/filters.tsx'
+import { SearchProvider } from '../../context/search.tsx'
 import { ProductsType } from '../../interfaces/productsType.ts'
 import { StyledLink } from '../StyledLinks.ts'
 import { Filters } from './Filters.tsx'
+import SearchBar from './SearchBar.tsx'
 
 export function Products({ products }: { products: ProductsType['products'] }) {
 
     return (
 
         <main className="products">
+            <SearchProvider>
+                <SearchBar products={products} />
+            </SearchProvider>
             <Filters />
 
             <ul>

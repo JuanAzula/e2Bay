@@ -1,3 +1,9 @@
+.products {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
 .products__img {
     width: 10%;
     /* height: 200px; */
@@ -5,4 +11,10 @@
 
 .product-cart-image {
     width: 80px;
+}
+
+.searchbar {
+    align-self: center;
+    margin-top: 0.7%;
+    margin-bottom: 4%;
 }

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { FiltersContext } from "../context/filters";
-import { ProductsType } from "../interfaces/productsType";
 
 export function useFilters() {
 
