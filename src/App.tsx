@@ -1,4 +1,3 @@
-import { products as initialProducts } from './mocks/products.json'
 import { users } from './mocks/users.json'
 import './styles/App.css'
 import { Products } from './components/products/Products'
@@ -14,14 +13,32 @@ import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
 import { Toaster } from 'react-hot-toast'
 import { useFilters } from './hooks/useFilters'
+import { getProducts } from './services/ProductService'
 
 
+async function fetchProducts(setProducts) {
+  try {
+
+    const sProducts = await getProducts()
+    console.log(sProducts)
+    setProducts(sProducts)
+    return sProducts
+  }
+  catch (err) {
+    console.log(err)
+    return []
+  }
+}
 
 export default function App() {
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    fetchProducts(setProducts)
 
-  const [products] = useState(initialProducts)
+    console.log('h')
+  }, [])
+
   const { filterProducts } = useFilters()
-  console.log(products)
   const filteredProducts = filterProducts(products)
 
   const [username, setUsername] = useState('')

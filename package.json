@@ -13,6 +13,7 @@
     "extends": "./tsconfig.node.json"
   },
   "dependencies": {
+    "axios": "^0.28.0",
     "canvas-confetti": "^1.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
