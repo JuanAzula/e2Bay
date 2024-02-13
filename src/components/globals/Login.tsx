@@ -11,7 +11,7 @@ export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordCh
                     type="text"
                     value={email}
                     id="email"
-                    placeholder="Email"
+                    placeholder="email or username"
                     onChange={handleUsernameChange}
 
                 />
@@ -21,7 +21,7 @@ export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordCh
                     // value={password}
                     password={password}
                     id="password"
-                    placeholder="Password"
+                    placeholder="password"
                     onChange={handlePasswordChange}
                 />
                 <button className='button' style={{ height: '30px' }} type="submit">Login</button>

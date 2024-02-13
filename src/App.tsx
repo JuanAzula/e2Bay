@@ -14,6 +14,7 @@ import { Cart, Navbar } from './components/globals'
 import { Toaster } from 'react-hot-toast'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
+import LoginService from './services/LoginService'
 
 
 async function fetchProducts(setProducts) {
@@ -65,17 +66,18 @@ export default function App() {
       const passwordValue = password.value
       console.log(emailValue, passwordValue)
 
-      const user = users.find((user) => user.email === emailValue && user.password === passwordValue)
-      if (user) {
-        console.log('Login successful')
-        setUser(user)
-        window.localStorage.setItem('userLogged', JSON.stringify(user))
-        // navigate('/')
+      // const user = users.find((user) => user.email === emailValue && user.password === passwordValue)
+      try {
+        const user = await LoginService.LoginUser({ username: emailValue, password: passwordValue })
+        if (user) {
+          console.log('Login successful')
+          setUser(user)
+          window.localStorage.setItem('userLogged', JSON.stringify(user))
+          return user
+        }
+      } catch (err) {
+        console.log('Login failed', err)
 
-        return user
-      } else {
-        console.log('Login failed')
-        return user
       }
     }
   }
