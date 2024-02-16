@@ -1,5 +1,14 @@
-import { useEffect, useId, useRef, useState } from 'react'
-import { useCart } from '../../hooks/useCart'
+import React, { useEffect, useId, useRef, useState } from 'react'
+import { useCart } from '../hooks/useCart'
+import { PayPalButtons } from '@paypal/react-paypal-js'
+import getStripe from '../lib/getStripe'
+import toast from 'react-hot-toast'
+import PayPalButton from './PaypalButton'
+
+interface PayPalButtonInterface {
+  totalValue: string
+  invoice: string
+}
 
 function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product }) {
   return (
@@ -31,7 +40,7 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
   )
 }
 
-const Cart = () => {
+const Cart: React.FC<PayPalButtonInterface> = () => {
   const { addToCart, removeFromCart, decreaseQuantity, cart, clearCart } = useCart()
 
   const cartWrapperRef = useRef(null)
@@ -58,6 +67,29 @@ const Cart = () => {
       setCartVisible(false)
     }
   }
+
+  // const handleCheckout = async () => {
+  // console.log('here')
+  // const stripe = await getStripe()
+  // console.log(stripe)
+  // const response = await fetch('../services/stripe', {
+  //   method: 'POST',
+  //   headers: {
+  //     origin: 'http://localhost:5173',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(cart)
+  // })
+  // console.log(response)
+  // if (response.status === 500) return
+
+  // const data = await response.json()
+
+  // toast.loading('Redirecting...')
+
+  // stripe.redirectToCheckout({ sessionId: data.id })
+  // console.log(response, stripe)
+  // }
 
   useEffect(() => {
     if (!checkProductInCart) {
@@ -101,7 +133,10 @@ const Cart = () => {
                             </>
                         ))}
                         <button className='cart--clear' onClick={clearCart}>Clear cart</button>
-                        <button className="cart--buy" type="button">Buy now</button>
+                        <form action="/create-checkout-session" method="POST">
+                        {/* <button className="cart--buy" type="button">Buy now</button> */}
+                        <PayPalButton totalValue={'10.00'} invoice='apple' />
+                        </form>
 
                     </ul>
                 </aside>
