@@ -1,12 +1,12 @@
-import { StyledLink } from "../StyledLinks"
+import { StyledLink } from '../StyledLinks'
 
 export const Users = ({ users, handleLogout }) => {
-    return (
+  return (
         <main className="users">
             <h1>Users</h1>
             <ul>
                 {users.map((user) => {
-                    return (
+                  return (
                         <>
                             <li key={user.id}>
                                 <Link to={`/users/${user.id}`}>
@@ -15,7 +15,7 @@ export const Users = ({ users, handleLogout }) => {
                                 <p>{user.email}</p>
                             </li>
                         </>
-                    )
+                  )
                 })}
             </ul>
             <button>
@@ -23,5 +23,5 @@ export const Users = ({ users, handleLogout }) => {
             </button>
         </main>
 
-    )
+  )
 }

@@ -1,9 +1,9 @@
-import { StyledLink } from "../StyledLinks"
+import { StyledLink } from '../StyledLinks'
 
 export const User = ({ users, handleLogout, userId }) => {
-    const user = users.find((user) => user.id == userId)
+  const user = users.find((user) => user.id == userId)
 
-    return (
+  return (
         <>
             <main className="users">
                 <img className="users__img" src="../src/assets/user-profile-flatline.svg" alt="user-profile image" />
@@ -17,5 +17,5 @@ export const User = ({ users, handleLogout, userId }) => {
             </main>
         </>
 
-    )
+  )
 }

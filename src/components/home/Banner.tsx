@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const Banner = () => {
-    return (
+  return (
         <div className='hero-banner-container'>
             <div>
                 {/* <p className='beats-solo'>Sony 13TZ</p> */}
@@ -20,7 +20,7 @@ const Banner = () => {
                 </div>
             </div>
         </div>
-    )
+  )
 }
 
 export default Banner

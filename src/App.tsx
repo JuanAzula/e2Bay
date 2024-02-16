@@ -1,9 +1,7 @@
 import { users } from './mocks/users.json'
 import './styles/App.css'
 import { Products } from './components/products/Products'
-import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
-import { StyledLink } from './components/StyledLinks'
-import { Product, ProductsType } from './interfaces/productsType'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { User } from './components/user/Users'
 import { Home } from './components/home/Home'
 import { LoginForm } from './components/globals/Login'
@@ -11,27 +9,22 @@ import { useEffect, useState } from 'react'
 import UserDetail from './components/user/UsersDetail'
 import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
-import { Toaster } from 'react-hot-toast'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
-import LoginService from './services/LoginService'
 
-
-async function fetchProducts(setProducts) {
+async function fetchProducts (setProducts) {
   try {
-
     const sProducts = await getProducts()
     console.log(sProducts)
     setProducts(sProducts)
     return sProducts
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err)
     return []
   }
 }
 
-export default function App() {
+export default function App () {
   const [products, setProducts] = useState([])
   useEffect(() => {
     fetchProducts(setProducts)
@@ -55,37 +48,26 @@ export default function App() {
     }
   }, [])
 
-
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (event) => {
     event.preventDefault()
-    const email = document.getElementById('email')
-    const password = document.getElementById('password')
 
-    if (email && password && email instanceof HTMLInputElement && password instanceof HTMLInputElement) {
-      const emailValue = email.value
-      const passwordValue = password.value
-      console.log(emailValue, passwordValue)
-
-      // const user = users.find((user) => user.email === emailValue && user.password === passwordValue)
-      try {
-        const user = await LoginService.LoginUser({ username: emailValue, password: passwordValue })
-        if (user) {
-          console.log('Login successful')
-          setUser(user)
-          window.localStorage.setItem('userLogged', JSON.stringify(user))
-          return user
-        }
-      } catch (err) {
-        console.log('Login failed', err)
-
-      }
+    if (username && password) {
+      const user = users.find((user) => user.email === username && user.password === password)
+      if (user) {
+        setUser(user)
+        window.localStorage.setItem('userLogged', JSON.stringify(user))
+      } return user
+    } else {
+      console.log('Login failed')
+      return user
     }
   }
   const handleLogout = () => {
     window.localStorage.removeItem('userLogged')
     setUser(null)
     console.log(user)
-    window.location.reload();
+    window.location.reload()
   }
   return (
     <>
@@ -109,12 +91,10 @@ export default function App() {
             username={username}
             password={password}
             handleSubmit={handleLogin}
-            handleUsernameChange={({ target }) => setUsername(target.value)}
-            handlePasswordChange={({ target }) => setPassword(target.value)}
+            handleUsernameChange={({ target }) => { setUsername(target.value) }}
+            handlePasswordChange={({ target }) => { setPassword(target.value) }}
           />
       }
     </>
   )
 }
-
-

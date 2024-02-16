@@ -1,7 +1,7 @@
 import { StyledLink } from '../StyledLinks'
 
 const Navbar = ({ user }: { user: any }) => {
-    return (
+  return (
         <header style={{ marginTop: '15px' }} className='header--routes'>
             <StyledLink to='/' style={{ marginLeft: '10px' }}>
                 Home
@@ -17,7 +17,7 @@ const Navbar = ({ user }: { user: any }) => {
             </StyledLink>
 
         </header>
-    )
+  )
 }
 
 export default Navbar

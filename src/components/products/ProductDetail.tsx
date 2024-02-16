@@ -1,31 +1,29 @@
-import { useParams } from "react-router-dom";
-import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from "react-icons/ai";
-import ProductHome from "./ProductHome";
-import { useCart } from "../../hooks/useCart";
-import { products } from "../../mocks/products.json";
-import { Filters } from "./Filters";
-
+import { useParams } from 'react-router-dom'
+import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai'
+import ProductHome from './ProductHome'
+import { useCart } from '../../hooks/useCart'
+import { products } from '../../mocks/products.json'
+import { Filters } from './Filters'
 
 export const ProductDetail = () => {
-    const { productId } = useParams()
-    const foundProduct = products.find((product) =>
-        product.id == productId
-    );
-    console.log(foundProduct.quantity)
-    const { cart, addToCart, decreaseQuantity } = useCart()
-    // console.log(cart[0].quantity)
-    const ProductinCart = cart.find((product) => product.id == productId)
-    return (
+  const { productId } = useParams()
+  const foundProduct = products.find((product) =>
+    product.id == productId
+  )
+  console.log(foundProduct.quantity)
+  const { cart, addToCart, decreaseQuantity } = useCart()
+  // console.log(cart[0].quantity)
+  const ProductinCart = cart.find((product) => product.id == productId)
+  return (
         <>
             {
-                !foundProduct ?
-                    <>
+                !foundProduct
+                  ? <>
                         <div>
                             <h1>Product Not Found</h1>
                         </div>
                     </>
-                    :
-                    <div>
+                  : <div>
                         <>
                             <ul>
                                 <li className="product-detail-container" key={foundProduct.id}>
@@ -88,11 +86,10 @@ export const ProductDetail = () => {
                     </div>
             }
         </>
-    );
+  )
 }
 
-
-{/* {
+{ /* {
     wishlist?.wishlist.includes(foundProduct.id)
     ? <span className="num"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart-filled" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -101,17 +98,13 @@ export const ProductDetail = () => {
     : <span className="num"><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-heart" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-</svg></span>} */}
+</svg></span>} */ }
 
-
-
-
-
-{/* <div>
+{ /* <div>
     <strong>{foundProduct.name}</strong> <span>${foundProduct.price}</span>
 </div>
 <p>{foundProduct.description}</p>
 <button>
     <AddToCartIcon />
 </button>
-<span>Stock:{foundProduct.stock}</span> */}
+<span>Stock:{foundProduct.stock}</span> */ }

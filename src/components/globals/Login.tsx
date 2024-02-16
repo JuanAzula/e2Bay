@@ -1,7 +1,5 @@
-
 export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }) => {
-
-    return (
+  return (
         <div className='login--container'>
             <h1 className='login--header'>E2BAY</h1>
 
@@ -27,5 +25,5 @@ export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordCh
                 <button className='button' style={{ height: '30px' }} type="submit">Login</button>
             </form>
         </div>
-    )
+  )
 }

@@ -1,32 +1,30 @@
 import { useId } from 'react'
 import '../../styles/filters.css'
 import { useFilters } from '../../hooks/useFilters'
-export function Filters() {
+export function Filters () {
+  const { filters, setFilters } = useFilters()
 
-    const { filters, setFilters } = useFilters()
+  const minPriceFilterId = useId()
+  const categoryFilterId = useId()
 
-    const minPriceFilterId = useId()
-    const categoryFilterId = useId()
+  const handleChangeMinPrice = (e) => {
+    setFilters(prevState => {
+      return {
+        ...prevState,
+        minPrice: e.target.value
+      }
+    })
+  }
 
-    const handleChangeMinPrice = (e) => {
-        setFilters(prevState => {
-            return {
-                ...prevState,
-                minPrice: e.target.value
-            }
-        })
-    }
+  const handleChangeCategory = (e) => {
+    setFilters(prevState => ({
+      ...prevState,
+      category: e.target.value
+    })
+    )
+  }
 
-    const handleChangeCategory = (e) => {
-        setFilters(prevState => ({
-            ...prevState,
-            category: e.target.value
-        })
-        )
-    }
-
-
-    return (
+  return (
         <section className="filters">
             <div className="filter">
                 <label htmlFor="{minPriceFilterId}">Price</label>
@@ -51,5 +49,5 @@ export function Filters() {
                 </select>
             </div>
         </section>
-    )
+  )
 }

@@ -1,10 +1,8 @@
-
 import { products } from '../../mocks/products.json'
-import { ProductHome, FooterBanner, Banner } from "../globals"
+import { ProductHome, FooterBanner, Banner } from '../globals'
 
 export const Home = () => {
-
-    return (
+  return (
         <main className="home">
             <Banner />
             <div className="products-heading">
@@ -20,5 +18,5 @@ export const Home = () => {
 
             <FooterBanner />
         </main>
-    )
+  )
 }

@@ -1,10 +1,9 @@
-
 const Layout = () => {
-    return (
+  return (
         <div>
 
         </div>
-    )
+  )
 }
 
 export default Layout
