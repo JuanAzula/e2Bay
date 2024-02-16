@@ -332,6 +332,7 @@ span.text-red {
     width: 18%;
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
+    overflow: scroll;
     right: 0;
     top: 0;
     z-index: 100;
@@ -343,21 +344,22 @@ span.text-red {
 .cart ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
 }
 
 .cart-container {
     margin-top: 24%;
+    padding-top: 5%;
     height: 200px;
     width: 69%;
     display: flex;
     background-color: rgba(255, 255, 255, 0.768);
     flex-direction: column;
-    margin-left: 7%;
     border-radius: 8px;
     /* align-items: center; */
     /* background-color: white; */
-    float: right;
+    /* float: right; */
     /* padding: 40px 10px; */
     /* position: relative; */
 

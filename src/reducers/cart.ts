@@ -1,4 +1,4 @@
-export const initialState = JSON.parse(window.localStorage.getItem('cart')) || []
+/* eslint-disable no-case-declarations */
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
@@ -63,8 +63,8 @@ export const CartReducer = (state, action) => {
       return newState
 
     case CART_ACTION_TYPES.CLEAR_CART:
-      updateLocalStorage(initialState)
-      return initialState
+      updateLocalStorage([])
+      return []
 
     default:
       return state

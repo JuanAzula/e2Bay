@@ -27,6 +27,7 @@ async function fetchProducts (setProducts) {
 export default function App () {
   const [products, setProducts] = useState([])
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetchProducts(setProducts)
 
     console.log('h')
@@ -88,11 +89,11 @@ export default function App () {
             </BrowserRouter>
           </>
           : <LoginForm
-            username={username}
+            email={username}
             password={password}
             handleSubmit={handleLogin}
-            handleUsernameChange={({ target }) => { setUsername(target.value) }}
-            handlePasswordChange={({ target }) => { setPassword(target.value) }}
+            handleUsernameChange={({ target }: React.ChangeEvent<HTMLInputElement>) => { setUsername(target.value) }}
+            handlePasswordChange={({ target }: React.ChangeEvent<HTMLInputElement>) => { setPassword(target.value) }}
           />
       }
     </>

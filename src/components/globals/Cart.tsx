@@ -11,8 +11,8 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
             <div>
                 <strong>{name}</strong>
                 <br />
-                <span>${price}</span>
             </div>
+                <span style={{ marginLeft: '4.9%' }}>${price}</span>
             <footer className="cart--quantity">
                 <small>
                     Quantity: {quantity}
@@ -32,7 +32,7 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
 }
 
 const Cart = () => {
-  const { addToCart, removeFromCart, decreaseQuantity, cart } = useCart()
+  const { addToCart, removeFromCart, decreaseQuantity, cart, clearCart } = useCart()
 
   const cartWrapperRef = useRef(null)
 
@@ -100,6 +100,7 @@ const Cart = () => {
 
                             </>
                         ))}
+                        <button className='cart--clear' onClick={clearCart}>Clear cart</button>
                         <button className="cart--buy" type="button">Buy now</button>
 
                     </ul>

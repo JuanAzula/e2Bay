@@ -1,4 +1,4 @@
-export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }) => {
+export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }): JSX.Element => {
   return (
         <div className='login--container'>
             <h1 className='login--header'>E2BAY</h1>

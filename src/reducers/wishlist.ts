@@ -1,6 +1,6 @@
 export const initialState = JSON.parse(window.localStorage.getItem('wishlist')) || []
 
-export const wishlist_ACTION_TYPES = {
+export const WISHLIST_ACTION_TYPES = {
   ADD_TO_WISHLIST: 'ADD_TO_wishlist',
   REMOVE_FROM_WISHLIST: 'REMOVE_FROM_WISHLIST',
   CLEAR_WISHLIST: 'CLEAR_WISHLIST'
