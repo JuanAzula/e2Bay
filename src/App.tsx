@@ -15,7 +15,6 @@ import { getProducts } from './services/ProductService'
 async function fetchProducts (setProducts) {
   try {
     const sProducts = await getProducts()
-    console.log(sProducts)
     setProducts(sProducts)
     return sProducts
   } catch (err) {
@@ -29,8 +28,6 @@ export default function App () {
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetchProducts(setProducts)
-
-    console.log('h')
   }, [])
 
   const { filterProducts } = useFilters()
@@ -67,7 +64,6 @@ export default function App () {
   const handleLogout = () => {
     window.localStorage.removeItem('userLogged')
     setUser(null)
-    console.log(user)
     window.location.reload()
   }
   return (

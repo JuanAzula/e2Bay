@@ -14,7 +14,6 @@ export const updateLocalStorage = (state) => {
 export const updateTotalPrice = (state) => {
   let total = 0
   if (state !== '0') {
-    console.log(state)
     state.forEach((item) => {
       total += item.price * item.quantity
     })
@@ -30,13 +29,11 @@ export const CartReducer = (state, action) => {
     case CART_ACTION_TYPES.ADD_TO_CART: {
       const { id } = actionPayload
       const productInCartIndex = state.findIndex(item => item.id === id)
-      console.log(productInCartIndex)
       if (productInCartIndex >= 0) {
         const newState = structuredClone(state)
         newState[productInCartIndex].quantity++
         updateLocalStorage(newState)
         updateTotalPrice(newState)
-        console.log(newState)
         return newState
       }
 
@@ -47,7 +44,6 @@ export const CartReducer = (state, action) => {
           quantity: 1
         }
       ]
-      console.log(newState)
       updateLocalStorage(newState)
       updateTotalPrice(newState)
       return newState

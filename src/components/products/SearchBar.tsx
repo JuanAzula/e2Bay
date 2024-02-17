@@ -20,7 +20,6 @@ function SearchBar ({ products }) {
     if (searchTerms && searchTerms !== '') {
       setSearchTerms(searchTerms)
       searchProducts(products)
-      console.log('d')
     }
   }, [searchTerms, setSearchTerms, searchProducts, products])
   return (

@@ -105,14 +105,11 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
   //   console.log(subtotalPrice)
   //   setTotalPrice(subtotalPrice.toString())
   // }
-  console.log(totalPrice)
 
   useEffect(() => {
     if (!checkProductInCart) {
       setCartVisible(false)
     }
-    console.log(window.localStorage.getItem('totalPrice'))
-    setTotalPrice(window.localStorage.getItem('totalPrice'))
     document.addEventListener('click', handleClickOutsideCart)
     return () => {
       document.removeEventListener('click', handleClickOutsideCart)

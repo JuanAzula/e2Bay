@@ -8,7 +8,6 @@ export const ProductDetail = ({ products }) => {
   const foundProduct = products.find((product) =>
     product.id === productId
   )
-  console.log(foundProduct.quantity)
   const { cart, addToCart, decreaseQuantity } = useCart()
   const ProductinCart = cart.find((product) => product.id === productId)
   return (
