@@ -11,6 +11,19 @@ export const updateLocalStorage = (state) => {
   window.localStorage.setItem('cart', JSON.stringify(state))
 }
 
+export const updateTotalPrice = (state) => {
+  let total = 0
+  if (state !== '0') {
+    console.log(state)
+    state.forEach((item) => {
+      total += item.price * item.quantity
+    })
+    window.localStorage.setItem('totalPrice', JSON.stringify(total))
+  } else {
+    window.localStorage.setItem('totalPrice', JSON.stringify(0))
+  }
+}
+
 export const CartReducer = (state, action) => {
   const { type: actionType, payload: actionPayload } = action
   switch (actionType) {
@@ -22,6 +35,7 @@ export const CartReducer = (state, action) => {
         const newState = structuredClone(state)
         newState[productInCartIndex].quantity++
         updateLocalStorage(newState)
+        updateTotalPrice(newState)
         console.log(newState)
         return newState
       }
@@ -33,9 +47,9 @@ export const CartReducer = (state, action) => {
           quantity: 1
         }
       ]
-
+      console.log(newState)
       updateLocalStorage(newState)
-
+      updateTotalPrice(newState)
       return newState
     }
     case CART_ACTION_TYPES.DECREASE_QUANTITY:
@@ -51,6 +65,7 @@ export const CartReducer = (state, action) => {
         }
 
         updateLocalStorage(newState)
+        updateTotalPrice(newState)
         return newState
       } else {
         return state
@@ -60,10 +75,12 @@ export const CartReducer = (state, action) => {
       const { id } = actionPayload
       const newState = state.filter(item => item.id !== id)
       updateLocalStorage(newState)
+      updateTotalPrice(newState)
       return newState
 
     case CART_ACTION_TYPES.CLEAR_CART:
       updateLocalStorage([])
+      updateTotalPrice('0')
       return []
 
     default:

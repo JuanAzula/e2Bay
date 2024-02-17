@@ -1,8 +1,5 @@
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { useCart } from '../hooks/useCart'
-import { PayPalButtons } from '@paypal/react-paypal-js'
-import getStripe from '../lib/getStripe'
-import toast from 'react-hot-toast'
 import PayPalButton from './PaypalButton'
 
 interface PayPalButtonInterface {
@@ -10,7 +7,12 @@ interface PayPalButtonInterface {
   invoice: string
 }
 
-function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product }) {
+function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product, setPrice }) {
+  const updateTotalPrice = () => {
+    setTimeout(() => {
+      setPrice(window.localStorage.getItem('totalPrice'))
+    }, 100)
+  }
   return (
         <li className="cart-container">
             <img className="product-cart-image"
@@ -26,14 +28,14 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
                 <small>
                     Quantity: {quantity}
                 </small>
-                <button onClick={decreaseQuantity}>
+                <button onClick={() => { decreaseQuantity(); updateTotalPrice() }}>
                     -
                 </button>
-                <button onClick={addToCart}>
+                <button onClick={() => { addToCart(); updateTotalPrice() }}>
                     +
                 </button>
             </footer>
-            <button className="cart--remove" onClick={() => removeFromCart(product)}>
+            <button className="cart--remove" onClick={() => { removeFromCart(product); updateTotalPrice() }}>
                 ❌🛒
             </button><br />
         </li>
@@ -41,7 +43,7 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
 }
 
 const Cart: React.FC<PayPalButtonInterface> = () => {
-  const { addToCart, removeFromCart, decreaseQuantity, cart, clearCart } = useCart()
+  const { addToCart, removeFromCart, decreaseQuantity, cart, clearCart, totalPrice, setTotalPrice } = useCart()
 
   const cartWrapperRef = useRef(null)
 
@@ -49,6 +51,7 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
 
   const toggleCartVisibility = () => {
     setCartVisible(!cartVisible)
+    setTotalPrice(window.localStorage.getItem('totalPrice'))
   }
 
   const cartCheckboxId = useId()
@@ -65,6 +68,8 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
     if (cartWrapperRef.current && event.target !== document.getElementById(cartContainerId) &&
             !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
       setCartVisible(false)
+      console.log(window.localStorage.getItem('totalPrice'))
+      setTotalPrice(window.localStorage.getItem('totalPrice'))
     }
   }
 
@@ -91,10 +96,23 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
   // console.log(response, stripe)
   // }
 
+  // const handleTotalPrice = () => {
+  //   let subtotalPrice = 0
+  //   for (const p in cart) {
+  //     subtotalPrice = subtotalPrice + cart[p].price
+  //     console.log(cart[p].price)
+  //   }
+  //   console.log(subtotalPrice)
+  //   setTotalPrice(subtotalPrice.toString())
+  // }
+  console.log(totalPrice)
+
   useEffect(() => {
     if (!checkProductInCart) {
       setCartVisible(false)
     }
+    console.log(window.localStorage.getItem('totalPrice'))
+    setTotalPrice(window.localStorage.getItem('totalPrice'))
     document.addEventListener('click', handleClickOutsideCart)
     return () => {
       document.removeEventListener('click', handleClickOutsideCart)
@@ -127,16 +145,18 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
                                     addToCart={() => addToCart(product)}
                                     decreaseQuantity={() => decreaseQuantity(product)}
                                     removeFromCart={() => removeFromCart(product)}
+                                    setPrice={setTotalPrice}
                                     {...product}
                                 />
 
                             </>
                         ))}
-                        <button className='cart--clear' onClick={clearCart}>Clear cart</button>
-                        <form action="/create-checkout-session" method="POST">
+                        <button className='cart--clear' onClick={() => { clearCart(); setTotalPrice('0') }}>Clear cart</button>
+                        <span>Total: {`$${totalPrice}`}</span>
+                        <PayPalButton totalValue={totalPrice} invoice='apple' />
+                        {/* <form action="/create-checkout-session" method="POST"> */}
                         {/* <button className="cart--buy" type="button">Buy now</button> */}
-                        <PayPalButton totalValue={'10.00'} invoice='apple' />
-                        </form>
+                        {/* </form> */}
 
                     </ul>
                 </aside>

@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // <Router location={''} navigator={undefined}>
   <PayPalScriptProvider
   options={{
-    'client-id': 'test'
+    'client-id': 'AWE5xHV0s2idwDLw6ftA1159Vuur5ZYzseJAIJOXD7o0mBnVixK1Jh-gVN9x7NsSX8a-amA3i8NDnkBm'
   }}
   >
   <CartProvider>

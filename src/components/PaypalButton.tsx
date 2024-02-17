@@ -3,14 +3,15 @@ import { PayPalButtons } from '@paypal/react-paypal-js'
 interface PayPalButtonInterface {
   totalValue: string
   invoice: string
+  cart: any
 }
 
 export const PayPalButton: React.FC<PayPalButtonInterface> = (props) => {
   return (
         <PayPalButtons
             // style={{ layout: 'horizontal' }}
-            createOrder={ (data, actions) => {
-              return actions.order
+            createOrder={ async (data, actions) => {
+              return await actions.order
                 .create({
                   purchase_units: [
                     {

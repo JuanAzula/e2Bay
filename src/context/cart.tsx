@@ -1,11 +1,11 @@
-import { createContext, useReducer } from 'react'
+import { createContext, useReducer, useState } from 'react'
 import { CartReducer } from '../reducers/cart'
 
 export const CartContext = createContext({} as any)
 
 function useCartReducer () {
-  const [state, dispatch] = useReducer(CartReducer, [])
-
+  const [state, dispatch] = useReducer(CartReducer, window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : [])
+  const [totalPrice, setTotalPrice] = useState(window.localStorage.getItem('totalPrice') ? JSON.parse(window.localStorage.getItem('totalPrice')) : '0')
   const addToCart = (product) => {
     dispatch({
       type: 'ADD_TO_CART',
@@ -32,11 +32,11 @@ function useCartReducer () {
     })
   }
 
-  return { state, addToCart, clearCart, removeFromCart, decreaseQuantity }
+  return { state, addToCart, clearCart, removeFromCart, decreaseQuantity, totalPrice, setTotalPrice }
 }
 
 export function CartProvider ({ children }) {
-  const { state, addToCart, clearCart, removeFromCart, decreaseQuantity } = useCartReducer()
+  const { state, addToCart, clearCart, removeFromCart, decreaseQuantity, totalPrice, setTotalPrice } = useCartReducer()
 
   return (
         <CartContext.Provider value={
@@ -45,7 +45,9 @@ export function CartProvider ({ children }) {
               clearCart,
               addToCart,
               removeFromCart,
-              decreaseQuantity
+              decreaseQuantity,
+              totalPrice,
+              setTotalPrice
             }
         }>
             {children}
