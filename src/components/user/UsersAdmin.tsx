@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { StyledLink } from '../StyledLinks'
 
 export const Users = ({ users, handleLogout }) => {

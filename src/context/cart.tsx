@@ -1,31 +1,32 @@
 import { createContext, useReducer, useState } from 'react'
 import { CartReducer } from '../reducers/cart'
+import { type Product } from '../interfaces/productsType'
 
 export const CartContext = createContext({} as any)
 
 function useCartReducer () {
   const [state, dispatch] = useReducer(CartReducer, window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : [])
   const [totalPrice, setTotalPrice] = useState(window.localStorage.getItem('totalPrice') ? JSON.parse(window.localStorage.getItem('totalPrice')) : '0')
-  const addToCart = (product) => {
+  const addToCart = (product: Product) => {
     dispatch({
       type: 'ADD_TO_CART',
       payload: product
     })
   }
-  const clearCart = (product) => {
+  const clearCart = (product: Product) => {
     dispatch({
       type: 'CLEAR_CART',
       payload: product
     })
   }
-  const removeFromCart = (product) => {
+  const removeFromCart = (product: Product) => {
     dispatch({
       type: 'REMOVE_FROM_CART',
       payload: product
     })
   }
 
-  const decreaseQuantity = (product) => {
+  const decreaseQuantity = (product: Product) => {
     dispatch({
       type: 'DECREASE_QUANTITY',
       payload: product

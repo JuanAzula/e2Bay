@@ -1,5 +1,7 @@
 /* eslint-disable no-case-declarations */
 
+import { type Cart } from '../types/cart'
+
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
@@ -7,7 +9,7 @@ export const CART_ACTION_TYPES = {
   DECREASE_QUANTITY: 'DECREASE_QUANTITY'
 }
 
-export const updateLocalStorage = (state) => {
+export const updateLocalStorage = (state: Cart) => {
   window.localStorage.setItem('cart', JSON.stringify(state))
 }
 
@@ -57,6 +59,7 @@ export const CartReducer = (state, action) => {
         newState[productInCartIndex].quantity--
         if (newState[productInCartIndex].quantity === 0) {
           newState = state.filter(item => item.id !== actionPayload.id)
+          updateTotalPrice(newState)
           return newState
         }
 

@@ -3,7 +3,6 @@ import { PayPalButtons } from '@paypal/react-paypal-js'
 interface PayPalButtonInterface {
   totalValue: string
   invoice: string
-  cart: any
 }
 
 export const PayPalButton: React.FC<PayPalButtonInterface> = (props) => {

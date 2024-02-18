@@ -1,13 +1,22 @@
 import React, { useEffect, useId, useRef, useState } from 'react'
 import { useCart } from '../hooks/useCart'
 import PayPalButton from './PaypalButton'
+import { type JSX } from 'react/jsx-runtime'
+import { type Product } from '../interfaces/productsType'
 
-interface PayPalButtonInterface {
-  totalValue: string
-  invoice: string
+interface CartItemProps {
+  image: ''
+  price: 0
+  name: ''
+  quantity: 0
+  product: ''
+  setPrice: (arg0: string | null) => void
+  addToCart: () => void
+  decreaseQuantity: () => void
+  removeFromCart: (arg0: string) => void
 }
 
-function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product, setPrice }) {
+function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product, setPrice }: CartItemProps) {
   const updateTotalPrice = () => {
     setTimeout(() => {
       setPrice(window.localStorage.getItem('totalPrice'))
@@ -42,7 +51,7 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
   )
 }
 
-const Cart: React.FC<PayPalButtonInterface> = () => {
+const Cart: React.FC = () => {
   const { addToCart, removeFromCart, decreaseQuantity, cart, clearCart, totalPrice, setTotalPrice } = useCart()
 
   const cartWrapperRef = useRef(null)
@@ -64,7 +73,7 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
     return cart.some()
   }
 
-  const handleClickOutsideCart = (event) => {
+  const handleClickOutsideCart = (event: MouseEvent) => {
     if (cartWrapperRef.current && event.target !== document.getElementById(cartContainerId) &&
             !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
       setCartVisible(false)
@@ -72,39 +81,6 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
       setTotalPrice(window.localStorage.getItem('totalPrice'))
     }
   }
-
-  // const handleCheckout = async () => {
-  // console.log('here')
-  // const stripe = await getStripe()
-  // console.log(stripe)
-  // const response = await fetch('../services/stripe', {
-  //   method: 'POST',
-  //   headers: {
-  //     origin: 'http://localhost:5173',
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(cart)
-  // })
-  // console.log(response)
-  // if (response.status === 500) return
-
-  // const data = await response.json()
-
-  // toast.loading('Redirecting...')
-
-  // stripe.redirectToCheckout({ sessionId: data.id })
-  // console.log(response, stripe)
-  // }
-
-  // const handleTotalPrice = () => {
-  //   let subtotalPrice = 0
-  //   for (const p in cart) {
-  //     subtotalPrice = subtotalPrice + cart[p].price
-  //     console.log(cart[p].price)
-  //   }
-  //   console.log(subtotalPrice)
-  //   setTotalPrice(subtotalPrice.toString())
-  // }
 
   useEffect(() => {
     if (!checkProductInCart) {
@@ -135,7 +111,7 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
 
                 <aside ref={cartWrapperRef} className={cartVisible ? 'cart' : 'hide'}>
                     <ul>
-                        {cart.map(product => (
+                        {cart.map((product: JSX.IntrinsicAttributes & Product) => (
                             <>
                                 <CartItem
                                     key={product.id}
@@ -151,10 +127,6 @@ const Cart: React.FC<PayPalButtonInterface> = () => {
                         <button className='cart--clear' onClick={() => { clearCart(); setTotalPrice('0') }}>Clear cart</button>
                         <span>Total: {`$${totalPrice}`}</span>
                         <PayPalButton totalValue={totalPrice} invoice='apple' />
-                        {/* <form action="/create-checkout-session" method="POST"> */}
-                        {/* <button className="cart--buy" type="button">Buy now</button> */}
-                        {/* </form> */}
-
                     </ul>
                 </aside>
             </main>

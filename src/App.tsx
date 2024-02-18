@@ -11,8 +11,9 @@ import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
+import { type Product } from './interfaces/productsType'
 
-async function fetchProducts (setProducts) {
+async function fetchProducts (setProducts: (arg0: Product) => void) {
   try {
     const sProducts = await getProducts()
     setProducts(sProducts)
@@ -47,7 +48,7 @@ export default function App () {
   }, [])
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleLogin = async (event) => {
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault()
 
     if (username && password) {

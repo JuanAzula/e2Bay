@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const baseUrl = 'http://localhost:3002/api/login'
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
