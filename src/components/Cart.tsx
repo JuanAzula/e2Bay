@@ -15,7 +15,7 @@ interface CartItemProps {
   setPrice: (arg0: string | null) => void
   addToCart: () => void
   decreaseQuantity: () => void
-  removeFromCart: (arg0: string) => void
+  removeFromCart: (arg0: Product) => void
 }
 
 function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product, setPrice, id }: CartItemProps) {
@@ -73,18 +73,18 @@ const Cart: React.FC = () => {
 
   const cartContainerId = useId()
 
-  const checkProductInCart = () => {
-    return cart.some()
-  }
+  // const checkProductInCart = () => {
+  //   return cart.some()
+  // }
 
-  const handleClickOutsideCart = (event: MouseEvent) => {
-    if (cartWrapperRef.current && event.target !== document.getElementById(cartContainerId) &&
-            !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
-      setCartVisible(false)
-      console.log(window.localStorage.getItem('totalPrice'))
-      setTotalPrice(window.localStorage.getItem('totalPrice'))
-    }
-  }
+  // const handleClickOutsideCart = (event: MouseEvent) => {
+  //   if (cartWrapperRef.current && event.target !== document.getElementById(cartContainerId) &&
+  //           !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
+  //     setCartVisible(false)
+  //     console.log(window.localStorage.getItem('totalPrice'))
+  //     setTotalPrice(window.localStorage.getItem('totalPrice'))
+  //   }
+  // }
 
   // useEffect(() => {
   //   if (!checkProductInCart) {

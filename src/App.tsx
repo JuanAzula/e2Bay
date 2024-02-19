@@ -52,6 +52,7 @@ export default function App () {
       if (user) {
         setUser(user)
         window.localStorage.setItem('userLogged', JSON.stringify(user))
+        queryUser.refetch()
       } return user
     } else {
       console.log('Login failed')
@@ -74,9 +75,9 @@ export default function App () {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products products={filteredProducts} />} />
-                <Route path='/products/:productId' element={<ProductDetail products={products} />} />
+                <Route path='/products/:productId' element={<ProductDetail products={queryProduct.data} />} />
                 <Route path="/users/:userId" element={<UserDetail users={users} />} />
-                <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={user.id} />} />
+                <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={queryUser.data?.id} />} />
                 <Route path="/wishlist/:userId" element={<UserDetail users={users} />} />
               </Routes>
             </BrowserRouter>
