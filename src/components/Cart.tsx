@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef, useState } from 'react'
+import React, { useId, useRef, useState } from 'react'
 import { useCart } from '../hooks/useCart'
 import PayPalButton from './PaypalButton'
 import { type JSX } from 'react/jsx-runtime'
@@ -86,15 +86,15 @@ const Cart: React.FC = () => {
     }
   }
 
-  useEffect(() => {
-    if (!checkProductInCart) {
-      setCartVisible(false)
-    }
-    document.addEventListener('click', handleClickOutsideCart)
-    return () => {
-      document.removeEventListener('click', handleClickOutsideCart)
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!checkProductInCart) {
+  //     setCartVisible(false)
+  //   }
+  //   document.addEventListener('click', handleClickOutsideCart)
+  //   return () => {
+  //     document.removeEventListener('click', handleClickOutsideCart)
+  //   }
+  // }, [])
 
   return (
         <div>

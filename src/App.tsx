@@ -5,47 +5,43 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { User } from './components/user/Users'
 import { Home } from './components/home/Home'
 import { LoginForm } from './components/globals/Login'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import UserDetail from './components/user/UsersDetail'
 import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
 import { type Product } from './interfaces/productsType'
+import { useQuery } from '@tanstack/react-query'
 
-async function fetchProducts (setProducts: (arg0: Product) => void) {
-  try {
-    const sProducts = await getProducts()
-    setProducts(sProducts)
-    return sProducts
-  } catch (err) {
-    console.log(err)
-    return []
+const getUser = (setUser: any) => {
+  const loggedUserJSON = window.localStorage.getItem('userLogged')
+  if (loggedUserJSON) {
+    const user = JSON.parse(loggedUserJSON)
+    setUser(user)
+    return user
   }
 }
 
 export default function App () {
-  const [products, setProducts] = useState([])
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    fetchProducts(setProducts)
-  }, [])
+  const queryProduct = useQuery({
+    queryKey: ['products'],
+    queryFn: async () => await getProducts()
+  }
+  )
+  const [products, setProducts] = useState([queryProduct.data as Product || []])
+
+  const queryUser = useQuery({
+    queryKey: ['user'],
+    queryFn: async () => getUser(setUser)
+  })
 
   const { filterProducts } = useFilters()
-  const filteredProducts = filterProducts(products)
+  const filteredProducts = filterProducts(queryProduct.data)
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
-  // const navigate = useNavigate()
-
-  useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('userLogged')
-    if (loggedUserJSON) {
-      const user = JSON.parse(loggedUserJSON)
-      setUser(user)
-    }
-  }, [])
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (event: React.FormEvent) => {
@@ -70,7 +66,7 @@ export default function App () {
   return (
     <>
       {
-        user
+        queryUser.data
           ? <>
             <BrowserRouter>
               <Navbar user={user} />
