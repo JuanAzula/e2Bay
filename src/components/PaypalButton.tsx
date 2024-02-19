@@ -3,6 +3,7 @@ import { PayPalButtons } from '@paypal/react-paypal-js'
 interface PayPalButtonInterface {
   totalValue: string
   invoice: string
+  clearCart: () => void
 }
 
 export const PayPalButton: React.FC<PayPalButtonInterface> = (props) => {
@@ -25,6 +26,8 @@ export const PayPalButton: React.FC<PayPalButtonInterface> = (props) => {
             onApprove={async (data, actions) => {
               const order = await actions.order?.capture()
               console.log('order', order)
+              alert(`Transaction completed  ${order}`)
+              props.clearCart()
             }}
         />
   )

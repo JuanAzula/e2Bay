@@ -3,20 +3,22 @@ import { useCart } from '../hooks/useCart'
 import PayPalButton from './PaypalButton'
 import { type JSX } from 'react/jsx-runtime'
 import { type Product } from '../interfaces/productsType'
+import { Link } from 'react-router-dom'
 
 interface CartItemProps {
   image: ''
   price: 0
   name: ''
   quantity: 0
-  product: ''
+  product: Product
+  id: string
   setPrice: (arg0: string | null) => void
   addToCart: () => void
   decreaseQuantity: () => void
   removeFromCart: (arg0: string) => void
 }
 
-function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product, setPrice }: CartItemProps) {
+function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, removeFromCart, product, setPrice, id }: CartItemProps) {
   const updateTotalPrice = () => {
     setTimeout(() => {
       setPrice(window.localStorage.getItem('totalPrice'))
@@ -24,10 +26,12 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
   }
   return (
         <li className="cart-container">
+          <Link to={`/products/${id}`}>
             <img className="product-cart-image"
                 src={image[0]}
                 alt={name}
-            />
+                />
+                </Link>
             <div>
                 <strong>{name}</strong>
                 <br />
@@ -119,6 +123,7 @@ const Cart: React.FC = () => {
                                     decreaseQuantity={() => decreaseQuantity(product)}
                                     removeFromCart={() => removeFromCart(product)}
                                     setPrice={setTotalPrice}
+                                    // id={product.id}
                                     {...product}
                                 />
 
@@ -126,7 +131,7 @@ const Cart: React.FC = () => {
                         ))}
                         <button className='cart--clear' onClick={() => { clearCart(); setTotalPrice('0') }}>Clear cart</button>
                         <span>Total: {`$${totalPrice}`}</span>
-                        <PayPalButton totalValue={totalPrice} invoice='apple' />
+                        <PayPalButton totalValue={totalPrice} invoice='apple' clearCart={clearCart} />
                     </ul>
                 </aside>
             </main>
