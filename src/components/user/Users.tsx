@@ -1,8 +1,6 @@
 import { StyledLink } from '../StyledLinks'
 
-export const User = ({ users, handleLogout, userId }) => {
-  const user = users.find((user) => user.id == userId)
-
+export const User = ({ user, handleLogout }) => {
   return (
         <>
             <main className="users">

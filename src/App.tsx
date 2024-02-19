@@ -4,9 +4,9 @@ import { Products } from './components/products/Products'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { User } from './components/user/Users'
 import { Home } from './components/home/Home'
+import Wishlist from './components/Wishlist'
 import { LoginForm } from './components/globals/Login'
 import { useState } from 'react'
-import UserDetail from './components/user/UsersDetail'
 import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
 import { useFilters } from './hooks/useFilters'
@@ -29,7 +29,7 @@ export default function App () {
     queryFn: async () => await getProducts()
   }
   )
-  const [products, setProducts] = useState([queryProduct.data as Product || []])
+  // const [products, setProducts] = useState([queryProduct.data as Product || []])
 
   const queryUser = useQuery({
     queryKey: ['user'],
@@ -76,9 +76,8 @@ export default function App () {
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products products={filteredProducts} />} />
                 <Route path='/products/:productId' element={<ProductDetail products={queryProduct.data} />} />
-                <Route path="/users/:userId" element={<UserDetail users={users} />} />
-                <Route path="/users" element={<User users={users} handleLogout={handleLogout} userId={queryUser.data?.id} />} />
-                <Route path="/wishlist/:userId" element={<UserDetail users={users} />} />
+                <Route path="/users" element={<User user={queryUser.data} handleLogout={handleLogout} />} />
+                <Route path="/wishlist/:userId" element={<Wishlist user={queryUser.data} />} />
               </Routes>
             </BrowserRouter>
           </>

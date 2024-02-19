@@ -1,24 +1,7 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default function UserDetail ({ users }) {
-  console.log(users)
-  const { userId } = useParams()
-  console.log(userId)
-  const foundUser = users.find((user) =>
-    user.id == userId
-  )
-  console.log(foundUser)
-
-  // users.forEach((user) => {
-
-  // console.log(user)
-  // console.log(user.id)
-  // if (user.id == userId) {
-  //     foundUser = user
-  // }
-  // })
-
-  if (!foundUser) {
+export default function Wishlist ({ user }) {
+  if (!user) {
     return (
             <div>
                 <h1>User Not Found</h1>
@@ -34,7 +17,7 @@ export default function UserDetail ({ users }) {
                 {/* <p>User wishlist</p> */}
                 <ul>
 
-                    {foundUser.wishlist.map((product) => {
+                    {user.wishlist.map((product) => {
                       return (
                             <li key={product.id}>
                                 <Link to={`/products/${product.id}`}>
@@ -51,7 +34,6 @@ export default function UserDetail ({ users }) {
                       )
                     })}
                 </ul>
-                {/* <p>{foundUser.wishlist}</p> */}
             </div>
     )
   }
