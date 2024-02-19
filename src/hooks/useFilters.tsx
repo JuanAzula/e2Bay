@@ -5,7 +5,7 @@ import { type Product } from '../interfaces/productsType'
 export function useFilters () {
   const { filters, setFilters } = useContext(FiltersContext)
 
-  const filterProducts = (products: Product[]) => {
+  const filterProducts = (products: Product[] | undefined) => {
     return products?.filter((product) => {
       return (
         product?.price >= filters.minPrice &&

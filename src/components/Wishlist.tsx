@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { type Product } from '../interfaces/productsType'
+import { type User } from '../interfaces/usersType'
 
-export default function Wishlist ({ user }) {
+export default function Wishlist ({ user }: { user: User }) {
   if (!user) {
     return (
             <div>
@@ -17,7 +19,7 @@ export default function Wishlist ({ user }) {
                 {/* <p>User wishlist</p> */}
                 <ul>
 
-                    {user.wishlist.map((product) => {
+                    {user.wishlist.map((product: Product) => {
                       return (
                             <li key={product.id}>
                                 <Link to={`/products/${product.id}`}>

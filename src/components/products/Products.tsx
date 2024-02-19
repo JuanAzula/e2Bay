@@ -5,7 +5,7 @@ import { StyledLink } from '../StyledLinks.ts'
 import { Filters } from './Filters.tsx'
 import SearchBar from './SearchBar.tsx'
 
-export function Products ({ products }: { products: ProductsType['products'] }) {
+export function Products ({ products }: { products: ProductsType['products'] | undefined }) {
   return (
 
         <main className="products">
@@ -15,7 +15,7 @@ export function Products ({ products }: { products: ProductsType['products'] }) 
             <Filters />
 
             <ul>
-                {products.map((product) => {
+                {products?.map((product) => {
                   return (
                         <li key={product.id}>
                             <StyledLink to={`/products/${product.id}`}>

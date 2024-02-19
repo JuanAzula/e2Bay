@@ -33,6 +33,7 @@ module.exports = {
           "react/react-in-jsx-scope": "off",
           "@typescript-eslint/prefer-nullish-coalescing": "off",
           "@typescript-eslint/strict-boolean-expressions": "off",
-          "react/prop-types": "off"
+          "react/prop-types": "off",
+          "@typescript-eslint/no-unsafe-argument": "off",
     }
 }

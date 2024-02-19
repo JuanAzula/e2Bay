@@ -11,14 +11,12 @@ import { ProductDetail } from './components/products/ProductDetail'
 import { Cart, Navbar } from './components/globals'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
-import { type Product } from './interfaces/productsType'
 import { useQuery } from '@tanstack/react-query'
 
-const getUser = (setUser: any) => {
+const getUser = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
   if (loggedUserJSON) {
     const user = JSON.parse(loggedUserJSON)
-    setUser(user)
     return user
   }
 }
@@ -29,19 +27,17 @@ export default function App () {
     queryFn: async () => await getProducts()
   }
   )
-  // const [products, setProducts] = useState([queryProduct.data as Product || []])
 
   const queryUser = useQuery({
     queryKey: ['user'],
-    queryFn: async () => getUser(setUser)
+    queryFn: async () => getUser()
   })
 
   const { filterProducts } = useFilters()
-  const filteredProducts = filterProducts(queryProduct.data)
+  const filteredProducts = filterProducts(queryProduct?.data)
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [user, setUser] = useState(null)
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (event: React.FormEvent) => {
@@ -50,18 +46,16 @@ export default function App () {
     if (username && password) {
       const user = users.find((user) => user.email === username && user.password === password)
       if (user) {
-        setUser(user)
+        // setUser(user)
         window.localStorage.setItem('userLogged', JSON.stringify(user))
-        queryUser.refetch()
+        void queryUser.refetch()
       } return user
     } else {
       console.log('Login failed')
-      return user
     }
   }
   const handleLogout = () => {
     window.localStorage.removeItem('userLogged')
-    setUser(null)
     window.location.reload()
   }
   return (
@@ -70,7 +64,7 @@ export default function App () {
         queryUser.data
           ? <>
             <BrowserRouter>
-              <Navbar user={user} />
+              <Navbar user={queryUser.data} />
               <Cart />
               <Routes>
                 <Route path="/" element={<Home />} />
