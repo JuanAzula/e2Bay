@@ -7,7 +7,7 @@ const ProductHome = ({ product }: any) => {
 
                 <StyledLink to={`/products/${product.id}`}>
                     <div className="product-card">
-                        <img className='product-image' src={product.image[0]} alt="" />
+                        <img className='product-image' src={product.image} alt="" />
                         {product.name}
                     </div>
                 </StyledLink>

@@ -19,7 +19,7 @@ export function Products ({ products }: { products: ProductsType['products'] | u
                   return (
                         <li key={product.id}>
                             <StyledLink to={`/products/${product.id}`}>
-                                <img className="products__img" src={product.image[0]}
+                                <img className="products__img" src={product.image}
                                     alt={product.name}
                                 />
                                 <div>
