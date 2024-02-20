@@ -10,7 +10,7 @@ export const PayPalButton: React.FC<PayPalButtonInterface> = (props) => {
   return (
         <PayPalButtons
             // style={{ layout: 'horizontal' }}
-            createOrder={ async (data, actions) => {
+            createOrder={ async (_data, actions) => {
               return await actions.order
                 .create({
                   purchase_units: [
@@ -23,10 +23,9 @@ export const PayPalButton: React.FC<PayPalButtonInterface> = (props) => {
                   ]
                 })
             }}
-            onApprove={async (data, actions) => {
+            onApprove={async (_data, actions) => {
               const order = await actions.order?.capture()
               console.log('order', order)
-              alert(`Transaction completed  ${order}`)
               props.clearCart()
             }}
         />

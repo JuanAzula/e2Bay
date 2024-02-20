@@ -5,10 +5,7 @@
             "name": "Apple Vision Pro",
             "price": 3600,
             "stock": 50,
-            "image": [
-                "../src/assets/applevisionpro3.png",
-                "/src/assets/images/productsMedium/product_1.webp"
-            ],
+            "image": "../src/assets/applevisionpro3.png",
             "description": "This is Apple vision pro. It's a great product for your needs.",
             "category": "headsets",
             "brand": "Brand_XYZ",
@@ -40,10 +37,7 @@
             "name": "Sony 13TZ",
             "price": 200,
             "stock": 50,
-            "image": [
-                "../src/assets/beats_solo.webp",
-                "/src/assets/images/productsMedium/product_1.webp"
-            ],
+            "image": "../src/assets/beats_solo.webp",
             "description": "This is Sony 13TZ. It's a great product for your needs.",
             "category": "headphones",
             "brand": "Brand_XYZ",
@@ -75,10 +69,7 @@
             "name": "Iphone 17",
             "price": 1100,
             "stock": 50,
-            "image": [
-                "../src/assets/iphoneX.png",
-                "/src/assets/images/productsMedium/product_1.webp"
-            ],
+            "image": "../src/assets/iphoneX.png",
             "description": "This is Sony 13TZ. It's a great product for your needs.",
             "category": "smartphones",
             "brand": "Brand_XYZ",
@@ -110,10 +101,7 @@
             "name": "boatpods",
             "price": 550,
             "stock": 30,
-            "image": [
-                "../src/assets/boatpods.webp",
-                "/src/assets/images/productsMedium/product_2.webp"
-            ],
+            "image": "../src/assets/boatpods.webp",
             "description": "Boat b6 is a high-quality product with great features.",
             "category": "headphones",
             "brand": "Brand_ABC",
@@ -138,10 +126,7 @@
             "name": "boat b6",
             "price": 550,
             "stock": 30,
-            "image": [
-                "../src/assets/speaker4.webp",
-                "/src/assets/images/productsMedium/product_2.webp"
-            ],
+            "image": "../src/assets/speaker4.webp",
             "description": "Boat b6 is a high-quality product with great features.",
             "category": "speakers",
             "brand": "Brand_ABC",

@@ -4,15 +4,22 @@ import ProductHome from './ProductHome'
 import { useCart } from '../../hooks/useCart'
 import { useState } from 'react'
 import { useWishlist } from '../../hooks/useWishlist'
+import { type Product, type ProductsType } from '../../interfaces/productsType'
 
-export const ProductDetail = ({ products }) => {
+export const ProductDetail = ({ products }: { products: ProductsType['products'] | undefined }) => {
   const { productId } = useParams()
-  const foundProduct = products.find((product) =>
+  const foundProduct = products?.find((product) =>
     product.id === productId
   )
   const [liked, setLiked] = useState(false)
-  const { cart, addToCart, decreaseQuantity } = useCart()
-  const ProductinCart = cart.find((product) => product.id === productId)
+  const { cart, addToCart, decreaseQuantity, setTotalPrice } = useCart()
+  const ProductinCart = cart.find((product: Product) => product.id === productId)
+
+  const updateTotalPrice = () => {
+    setTimeout(() => {
+      setTotalPrice(window.localStorage.getItem('totalPrice'))
+    }, 100)
+  }
 
   const { addToWishlist } = useWishlist()
   return (
@@ -56,9 +63,9 @@ export const ProductDetail = ({ products }) => {
                                         <div className="quantity">
                                             <h3>Quantity</h3>
                                             <p className="quantity-desc">
-                                                <span className="minus" onClick={() => decreaseQuantity(foundProduct)}><AiOutlineMinus /></span>
+                                                <span className="minus" onClick={() => { decreaseQuantity(foundProduct); updateTotalPrice() }}><AiOutlineMinus /></span>
                                                 <span className="num">{ProductinCart ? ProductinCart.quantity : 0}</span>
-                                                <span className="plus" onClick={() => addToCart(foundProduct)}><AiOutlinePlus /></span>
+                                                <span className="plus" onClick={() => { addToCart(foundProduct); updateTotalPrice() }}><AiOutlinePlus /></span>
                                             </p>
                                             <button className='like-button' onClick={() => {
                                               setLiked(!liked)
@@ -90,7 +97,7 @@ export const ProductDetail = ({ products }) => {
                                     <h2>You may also like</h2>
                                     <div className="marquee">
                                         <div className="maylike-products-container track">
-                                            {products.map((item) => (
+                                            {products?.map((item) => (
                                                 <ProductHome key={item.id} product={item} />
                                             ))}
                                         </div>

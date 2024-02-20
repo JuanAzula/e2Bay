@@ -6,10 +6,10 @@ import { type Product } from '../interfaces/productsType'
 import { Link } from 'react-router-dom'
 
 interface CartItemProps {
-  image: ''
-  price: 0
-  name: ''
-  quantity: 0
+  image: string
+  price: number
+  name: string
+  quantity: number
   product: Product
   id: string
   setPrice: (arg0: string | null) => void
@@ -123,7 +123,7 @@ const Cart: React.FC = () => {
                                     decreaseQuantity={() => decreaseQuantity(product)}
                                     removeFromCart={() => removeFromCart(product)}
                                     setPrice={setTotalPrice}
-                                    // id={product.id}
+                                    product={product}
                                     {...product}
                                 />
 

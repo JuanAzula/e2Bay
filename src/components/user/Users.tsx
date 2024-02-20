@@ -1,12 +1,7 @@
-import { type UsersType } from '../../interfaces/usersType'
+import { type User as UserType } from '../../interfaces/usersType'
 import { StyledLink } from '../StyledLinks'
 
-interface UserProps {
-  user: UsersType['users']
-  handleLogout: () => void
-}
-
-export const User: React.FC<UserProps> = ({ user, handleLogout }) => {
+export const User: React.FC<{ user: UserType, handleLogout: () => void }> = ({ user, handleLogout }) => {
   return (
         <>
             <main className="users">

@@ -5,8 +5,10 @@ import { type Product } from '../interfaces/productsType'
 export const CartContext = createContext({} as any)
 
 function useCartReducer () {
-  const [state, dispatch] = useReducer(CartReducer, window.localStorage.getItem('cart') ? JSON.parse(window.localStorage.getItem('cart')) : [])
-  const [totalPrice, setTotalPrice] = useState(window.localStorage.getItem('totalPrice') ? JSON.parse(window.localStorage.getItem('totalPrice')) : '0')
+  const cartItem = window.localStorage.getItem('cart')
+  const cart = cartItem !== null ? JSON.parse(cartItem) : []
+  const [state, dispatch] = useReducer(CartReducer, cart)
+  const [totalPrice, setTotalPrice] = useState(window.localStorage.getItem('totalPrice') || '0')
   const addToCart = (product: Product) => {
     dispatch({
       type: 'ADD_TO_CART',
@@ -36,7 +38,7 @@ function useCartReducer () {
   return { state, addToCart, clearCart, removeFromCart, decreaseQuantity, totalPrice, setTotalPrice }
 }
 
-export function CartProvider ({ children }) {
+export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { state, addToCart, clearCart, removeFromCart, decreaseQuantity, totalPrice, setTotalPrice } = useCartReducer()
 
   return (

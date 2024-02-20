@@ -1,4 +1,10 @@
-export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }): JSX.Element => {
+export const LoginForm: React.FC<{
+  handleSubmit: () => void
+  handleUsernameChange: () => void
+  handlePasswordChange: () => void
+  email: string
+  password: string
+}> = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }) => {
   return (
         <div className='login--container'>
             <h1 className='login--header'>E2BAY</h1>
@@ -16,8 +22,7 @@ export const LoginForm = ({ handleSubmit, handleUsernameChange, handlePasswordCh
                 <input
                     className='input'
                     type="password"
-                    // value={password}
-                    password={password}
+                    value={password}
                     id="password"
                     placeholder="password"
                     onChange={handlePasswordChange}

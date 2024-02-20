@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useSearch } from '../../hooks/useSearch'
 import { useEffect } from 'react'
+import { type Product } from '../../interfaces/productsType'
 
-function SearchBar ({ products }) {
+function SearchBar ({ products }: { products: Product[] | undefined }) {
   const { setSearchTerms, searchProducts, searchedProducts, searchTerms } = useSearch()
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value
     if (searchTerm && searchTerm !== '') {
       console.log(searchTerm)

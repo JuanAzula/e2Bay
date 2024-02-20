@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { StyledLink } from '../StyledLinks'
+import { type User } from '../../interfaces/usersType'
 
-export const Users = ({ users, handleLogout }) => {
+export const Users: React.FC<{ users: User[], handleLogout: () => void }> = ({ users, handleLogout }) => {
   return (
         <main className="users">
             <h1>Users</h1>
             <ul>
-                {users.map((user) => {
+                {users.map((user: User) => {
                   return (
                         <>
                             <li key={user.id}>

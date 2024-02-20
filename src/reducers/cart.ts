@@ -1,6 +1,7 @@
 /* eslint-disable no-case-declarations */
 
-import { type Cart } from '../types/cart'
+import { type Product } from '../interfaces/productsType'
+import { type CartAction } from '../types/cart'
 
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
@@ -9,13 +10,13 @@ export const CART_ACTION_TYPES = {
   DECREASE_QUANTITY: 'DECREASE_QUANTITY'
 }
 
-export const updateLocalStorage = (state: Cart) => {
+export const updateLocalStorage = (state: Product[]) => {
   window.localStorage.setItem('cart', JSON.stringify(state))
 }
 
-export const updateTotalPrice = (state) => {
+export const updateTotalPrice = (state: Product[] | string) => {
   let total = 0
-  if (state !== '0') {
+  if (state !== '0' && Array.isArray(state)) {
     state.forEach((item) => {
       total += item.price * item.quantity
     })
@@ -25,11 +26,11 @@ export const updateTotalPrice = (state) => {
   }
 }
 
-export const CartReducer = (state, action) => {
-  const { type: actionType, payload: actionPayload } = action
-  switch (actionType) {
+export const CartReducer = (state: Product[], action: CartAction) => {
+  const { type } = action
+  switch (type) {
     case CART_ACTION_TYPES.ADD_TO_CART: {
-      const { id } = actionPayload
+      const { id } = action.payload
       const productInCartIndex = state.findIndex(item => item.id === id)
       if (productInCartIndex >= 0) {
         const newState = structuredClone(state)
@@ -42,7 +43,7 @@ export const CartReducer = (state, action) => {
       const newState = [
         ...state,
         {
-          ...actionPayload,
+          ...action.payload,
           quantity: 1
         }
       ]
@@ -51,14 +52,13 @@ export const CartReducer = (state, action) => {
       return newState
     }
     case CART_ACTION_TYPES.DECREASE_QUANTITY:
-      // const { id } = actionPayload
-      const productInCartIndex = state.findIndex(item => item.id === actionPayload.id)
+      const productInCartIndex = state.findIndex(item => item.id === action.payload.id)
 
       if (state[productInCartIndex].quantity > 0) {
         let newState = structuredClone(state)
         newState[productInCartIndex].quantity--
         if (newState[productInCartIndex].quantity === 0) {
-          newState = state.filter(item => item.id !== actionPayload.id)
+          newState = state.filter(item => item.id !== action.payload.id)
           updateTotalPrice(newState)
           return newState
         }
@@ -71,7 +71,7 @@ export const CartReducer = (state, action) => {
       }
 
     case CART_ACTION_TYPES.REMOVE_FROM_CART:
-      const { id } = actionPayload
+      const { id } = action.payload
       const newState = state.filter(item => item.id !== id)
       updateLocalStorage(newState)
       updateTotalPrice(newState)

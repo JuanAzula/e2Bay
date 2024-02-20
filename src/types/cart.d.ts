@@ -1,13 +1,19 @@
-export interface Cart {
-  id: number
-  name: string
-  price: number
-  stock: number
-  image: string
-  description: string
-  category: string
-  brand: string
-  rating: number
-  reviews: Review
-  filters: string
+import { type Product } from '../interfaces/productsType'
+
+export type CartAction =
+| {
+  type: 'ADD_TO_CART'
+  payload: Product
+}
+| {
+  type: 'REMOVE_FROM_CART'
+  payload: Product
+}
+| {
+  type: 'DECREASE_QUANTITY'
+  payload: Product
+}
+| {
+  type: 'CLEAR_CART'
+  payload: Product
 }

@@ -25,13 +25,6 @@ export function Products ({ products }: { products: ProductsType['products'] | u
                                 <div>
                                     <strong>{product.name}</strong> <span>${product.price}</span>
                                 </div>
-                                {/* <button >
-
-<AddToCartIcon />
-
-</button> */}
-                                {/* <p>{product.description}</p>
-                            <span>Stock:{product.stock}</span> */}
                             </StyledLink>
                         </li>
                   )

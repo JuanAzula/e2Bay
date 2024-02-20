@@ -7,9 +7,10 @@ export interface Product {
   name: string
   price: number
   stock: number
-  image: string[]
+  image: string
   description: string
   category: string
+  quantity: number
   brand: string
   rating: number
   reviews: Review[]

@@ -1,14 +1,15 @@
 import { useId } from 'react'
 import '../../styles/filters.css'
 import { useFilters } from '../../hooks/useFilters'
+import { type Product } from '../../interfaces/productsType'
 export function Filters () {
-  const { filters, setFilters } = useFilters()
+  const { filters, setFilters }: { filters: any, setFilters: any } = useFilters()
 
   const minPriceFilterId = useId()
   const categoryFilterId = useId()
 
-  const handleChangeMinPrice = (e) => {
-    setFilters(prevState => {
+  const handleChangeMinPrice = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilters((prevState: Product) => {
       return {
         ...prevState,
         minPrice: e.target.value
@@ -16,8 +17,8 @@ export function Filters () {
     })
   }
 
-  const handleChangeCategory = (e) => {
-    setFilters(prevState => ({
+  const handleChangeCategory = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilters((prevState: Product) => ({
       ...prevState,
       category: e.target.value
     })
