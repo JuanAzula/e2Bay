@@ -18,7 +18,7 @@ function useWishlistReducer () {
 
   const addToWishlist = (product: Product) => {
     // Check if the product is already in the wishlist
-    if (wishlist.find((item) => item.id === product.id)) {
+    if (wishlist.find((item: Product) => item.id === product.id)) {
       return
     }
 
@@ -29,7 +29,7 @@ function useWishlistReducer () {
   }
 
   const removeFromWishlist = (product: Product) => {
-    const newWishlist = wishlist.filter((item) => item.id !== product.id)
+    const newWishlist = wishlist.filter((item: Product) => item.id !== product.id)
     window.localStorage.setItem('wishlist', JSON.stringify(newWishlist))
     setWishlist(newWishlist)
   }

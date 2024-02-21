@@ -86,7 +86,7 @@ export default function App () {
                 <Route path="/products" element={<Products products={filteredProducts} />} />
                 <Route path='/products/:productId' element={<ProductDetail products={queryProduct.data} />} />
                 <Route path="/users" element={<User user={queryUserLogged.data} handleLogout={handleLogout} />} />
-                <Route path="/wishlist/:userId" element={<Wishlist user={queryUserLogged.data} />} />
+                <Route path="/wishlist/:userId" element={<Wishlist />} />
               </Routes>
             </BrowserRouter>
           </>
