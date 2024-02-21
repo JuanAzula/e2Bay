@@ -1,12 +1,17 @@
 import { Link } from 'react-router-dom'
-import { type Cart, type User } from '../interfaces/usersType'
+import { type Cart } from '../interfaces/usersType'
+import { useWishlist } from '../hooks/useWishlist'
 
-export default function Wishlist ({ user }: { user: User }) {
-  console.log(user)
-  if (!user) {
+export default function Wishlist () {
+  const { wishlist } = useWishlist()
+  console.log(wishlist)
+
+  const { removeFromWishlist } = useWishlist()
+
+  if (wishlist.length === 0) {
     return (
             <div>
-                <h1>User Not Found</h1>
+                <h1>Wishlist empty</h1>
             </div>
     )
   } else {
@@ -14,20 +19,20 @@ export default function Wishlist ({ user }: { user: User }) {
             <div>
                 <h1>Wishlist</h1>
                 <ul>
-
-                    {user.wishlist.map((product: Cart) => {
+                    {wishlist.map((product: Cart) => {
                       return (
                             <li key={product.id}>
                                 <Link to={`/products/${product.id}`}>
-                                    <img style={{ width: '100px' }} src={product.image[0]}
+                                    <img style={{ width: '100px' }} src={product.image}
                                         alt={product.name}
                                     />
                                     <div>
                                         <strong>{product.name}</strong> - <span>${product.price}</span>
                                     </div>
+                                </Link>
                                     <p>{product.description}</p>
                                     <span>Stock:{product.stock}</span>
-                                </Link>
+                                    <button onClick={() => removeFromWishlist(product)}>❌</button>
                             </li>
                       )
                     })}

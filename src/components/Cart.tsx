@@ -110,8 +110,8 @@ const Cart: React.FC = () => {
             </button>
             <main id={cartContainerId} className={cartVisible ? 'cart-wrapper' : 'hide'}>
                 <label className="cart-button" htmlFor={cartCheckboxId}>
-                </label>
                 <input type="checkbox" id={cartCheckboxId} hidden />
+                </label>
 
                 <aside ref={cartWrapperRef} className={cartVisible ? 'cart' : 'hide'}>
                     <ul>

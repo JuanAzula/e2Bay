@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus, AiOutlineStar } from 'react-icons/ai'
 import ProductHome from './ProductHome'
 import { useCart } from '../../hooks/useCart'
-import { useState } from 'react'
 import { useWishlist } from '../../hooks/useWishlist'
 import { type Product, type ProductsType } from '../../interfaces/productsType'
 
@@ -11,17 +10,29 @@ export const ProductDetail = ({ products }: { products: ProductsType['products']
   const foundProduct = products?.find((product) =>
     product.id === productId
   )
-  const [liked, setLiked] = useState(false)
   const { cart, addToCart, decreaseQuantity, setTotalPrice } = useCart()
   const ProductinCart = cart.find((product: Product) => product.id === productId)
-
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist()
+  console.log(wishlist)
+  const checkProductInWishlist = () => {
+    if (wishlist.find((product: Product) => product.id === productId)) {
+      return true
+    } else return false
+  }
   const updateTotalPrice = () => {
     setTimeout(() => {
       setTotalPrice(window.localStorage.getItem('totalPrice'))
     }, 100)
   }
 
-  const { addToWishlist } = useWishlist()
+  const wishlistHandler = (product: Product) => {
+    if (checkProductInWishlist()) {
+      removeFromWishlist(product)
+    } else {
+      addToWishlist(product)
+    }
+  }
+
   return (
         <>
             {
@@ -38,11 +49,6 @@ export const ProductDetail = ({ products }: { products: ProductsType['products']
                                     <div className="image-container">
                                         <img className="product-image" src={foundProduct.image} alt={foundProduct.name} />
                                     </div>
-
-                                    {/* <div className="small-image-container">
-
-                                    </div> */}
-
                                     <div className="product-detail-desc">
                                         <h1>{foundProduct.name}</h1>
                                         <div className="reviews">
@@ -68,10 +74,9 @@ export const ProductDetail = ({ products }: { products: ProductsType['products']
                                                 <span className="plus" onClick={() => { addToCart(foundProduct); updateTotalPrice() }}><AiOutlinePlus /></span>
                                             </p>
                                             <button className='like-button' onClick={() => {
-                                              setLiked(!liked)
-                                              addToWishlist(foundProduct)
+                                              wishlistHandler(foundProduct)
                                             }}>
-                                                {liked
+                                                {checkProductInWishlist()
                                                   ? <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-heart-filled" width="32" height="32" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#f20179" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                   <path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" strokeWidth="0" fill="currentColor" />
