@@ -8,7 +8,6 @@ export const FiltersProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [filters, setFilters] = useState({
     category: 'all',
     minPrice: 0
-    // minRating: 0
   }
   )
   return (

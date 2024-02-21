@@ -1,41 +1,56 @@
 import { Link } from 'react-router-dom'
 import { useSearch } from '../../hooks/useSearch'
-import { useEffect } from 'react'
 import { type Product } from '../../interfaces/productsType'
 
 function SearchBar ({ products }: { products: Product[] | undefined }) {
-  const { setSearchTerms, searchProducts, searchedProducts, searchTerms } = useSearch()
-
+  const { setSearchTerms, searchProducts, searchedProducts, setSearchedProducts } = useSearch()
+  // const [searchValue, setSearchValue] = useState('')
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value
-    if (searchTerm && searchTerm !== '') {
-      console.log(searchTerm)
-      setSearchTerms(searchTerm)
+    console.log('valor de busqueda', searchTerm)
 
+    console.log('searchterm:', searchTerm)
+
+    if (searchTerm.length !== 0) {
+      setSearchTerms(searchTerm)
       searchProducts(products)
+    } else {
+      console.log('está vacío')
+      searchProducts([])
+      localStorage.removeItem('searchedProducts')
+      // setSearchedProducts([])
+      setSearchTerms('')
     }
-    console.log(products)
-    console.log(searchedProducts)
   }
-  useEffect(() => {
-    if (searchTerms && searchTerms !== '') {
-      setSearchTerms(searchTerms)
-      searchProducts(products)
-    }
-  }, [searchTerms, setSearchTerms, searchProducts, products])
+
+  console.log('bobi', searchedProducts)
+
   return (
         <div className="searchbar">
             <input type="search" onChange={handleSearch} />
-            {searchedProducts && searchedProducts.length > 0 && (
+            <div>
+              Products:
+              {searchedProducts?.map((product) => (
+                <div key={product.id}>
+                  <Link to={`/products/${product.id}`}>
+                  {product.name}
+                  </Link>
+                </div>
+              ))}
+              </div>
+            <div>
+                <Link to="/products">See all</Link>
+            </div>
+            {/* {searchedProducts && searchedProducts.length > 0 && (
                 <ul>
                     {searchedProducts.map((product) => (
                         <li key={product.id}>
                             {/* Use Link to navigate to the product detail route */}
-                            <Link to={`/products/${product.id}`}>{product.name}</Link>
+                            {/* <Link to={`/products/${product.id}`}>{product.name}</Link>
                         </li>
                     ))}
                 </ul>
-            )}
+            )} */}
         </div>
   )
 }
