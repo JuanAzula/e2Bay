@@ -13,7 +13,7 @@ export const updateLocalStorage = (state) => {
 export const wishlistReducer = (state, action) => {
   const { type: actionType, payload: actionPayload } = action
   switch (actionType) {
-    case wishlist_ACTION_TYPES.ADD_TO_WISHLIST: {
+    case WISHLIST_ACTION_TYPES.ADD_TO_WISHLIST: {
       const { id } = actionPayload
       const productInWishlistIndex = state.findIndex(item => item.id === id)
 
@@ -36,13 +36,13 @@ export const wishlistReducer = (state, action) => {
 
       return newState
     }
-    case wishlist_ACTION_TYPES.REMOVE_FROM_WISHLIST:
+    case WISHLIST_ACTION_TYPES.REMOVE_FROM_WISHLIST:
       const { id } = actionPayload
       const newState = state.filter(item => item.id !== id)
       updateLocalStorage(newState)
       return newState
 
-    case wishlist_ACTION_TYPES.CLEAR_WISHLIST:
+    case WISHLIST_ACTION_TYPES.CLEAR_WISHLIST:
       updateLocalStorage(initialState)
       return initialState
 

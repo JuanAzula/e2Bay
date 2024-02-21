@@ -1,7 +1,7 @@
 export const LoginForm: React.FC<{
-  handleSubmit: () => void
-  handleUsernameChange: () => void
-  handlePasswordChange: () => void
+  handleSubmit: (event: React.FormEvent) => void
+  handleUsernameChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  handlePasswordChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   email: string
   password: string
 }> = ({ handleSubmit, handleUsernameChange, handlePasswordChange, email, password }) => {

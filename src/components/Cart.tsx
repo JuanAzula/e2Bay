@@ -28,7 +28,7 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
         <li className="cart-container">
           <Link to={`/products/${id}`}>
             <img className="product-cart-image"
-                src={image[0]}
+                src={image}
                 alt={name}
                 />
                 </Link>

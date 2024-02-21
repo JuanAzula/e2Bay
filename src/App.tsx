@@ -1,4 +1,3 @@
-import { users } from './mocks/users.json'
 import './styles/App.css'
 import { Products } from './components/products/Products'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -12,6 +11,7 @@ import { Cart, Navbar } from './components/globals'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
 import { useQuery } from '@tanstack/react-query'
+import { addWishlist, getUsers as fetchUsers } from './services/UserService'
 
 const getUser = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -28,7 +28,24 @@ export default function App () {
   }
   )
 
-  const queryUser = useQuery({
+  const wishlistProduct = (id: string) => {
+    const products = queryProduct.data
+    const foundProduct = products?.filter(product => product.id === id)
+    console.log(foundProduct)
+    return foundProduct
+  }
+  wishlistProduct('f91eb86a8f6c973d5e8780a7c')
+  const queryUsers = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => await fetchUsers()
+  })
+  const queryWishlist = useQuery({
+    queryKey: ['wishlist'],
+    queryFn: async () => { await addWishlist(queryUserLogged.data.id, 'f91eb86a8f6c973d5e8780a7c', wishlistProduct('f91eb86a8f6c973d5e8780a7c')) }
+  })
+  console.log(queryWishlist.data)
+
+  const queryUserLogged = useQuery({
     queryKey: ['user'],
     queryFn: async () => getUser()
   })
@@ -39,16 +56,14 @@ export default function App () {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault()
 
     if (username && password) {
-      const user = users.find((user) => user.email === username && user.password === password)
+      const user = queryUsers.data.find((user: { email: string, password: string }) => user.email === username && user.password === password)
       if (user) {
-        // setUser(user)
         window.localStorage.setItem('userLogged', JSON.stringify(user))
-        void queryUser.refetch()
+        void queryUserLogged.refetch()
       } return user
     } else {
       console.log('Login failed')
@@ -61,17 +76,17 @@ export default function App () {
   return (
     <>
       {
-        queryUser.data
+        queryUserLogged.data
           ? <>
             <BrowserRouter>
-              <Navbar user={queryUser.data} />
+              <Navbar user={queryUserLogged.data} />
               <Cart />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products products={filteredProducts} />} />
                 <Route path='/products/:productId' element={<ProductDetail products={queryProduct.data} />} />
-                <Route path="/users" element={<User user={queryUser.data} handleLogout={handleLogout} />} />
-                <Route path="/wishlist/:userId" element={<Wishlist user={queryUser.data} />} />
+                <Route path="/users" element={<User user={queryUserLogged.data} handleLogout={handleLogout} />} />
+                <Route path="/wishlist/:userId" element={<Wishlist user={queryUserLogged.data} />} />
               </Routes>
             </BrowserRouter>
           </>

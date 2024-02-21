@@ -35,5 +35,6 @@ module.exports = {
           "@typescript-eslint/strict-boolean-expressions": "off",
           "react/prop-types": "off",
           "@typescript-eslint/no-unsafe-argument": "off",
+          "@typescript-eslint/no-misused-promises": "off"
     }
 }

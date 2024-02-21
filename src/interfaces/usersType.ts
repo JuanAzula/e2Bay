@@ -16,7 +16,7 @@ export interface Cart {
   name: string
   price: number
   stock: number
-  image: string[]
+  image: string
   description: string
   category: string
   brand: string
