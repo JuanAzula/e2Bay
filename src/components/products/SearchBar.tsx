@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useSearch } from '../../hooks/useSearch'
 import { type Product } from '../../interfaces/productsType'
+import { StyledSearchbar } from '../StyledSearchbar'
 
 function SearchBar ({ products }: { products: Product[] | undefined }) {
   const { setSearchTerms, searchProducts, searchedProducts, setSearchedProducts } = useSearch()
@@ -27,20 +28,17 @@ function SearchBar ({ products }: { products: Product[] | undefined }) {
 
   return (
         <div className="searchbar">
-            <input type="search" onChange={handleSearch} />
-            <div>
-              Products:
+            <StyledSearchbar type="search" placeholder="Search..." onChange={handleSearch} />
+            <div className='searchbar--products'>
               {searchedProducts?.map((product) => (
-                <div key={product.id}>
+                <div key={product.id} >
                   <Link to={`/products/${product.id}`}>
+                  <img src={product.image} alt="" />
                   {product.name}
                   </Link>
                 </div>
               ))}
               </div>
-            <div>
-                <Link to="/products">See all</Link>
-            </div>
             {/* {searchedProducts && searchedProducts.length > 0 && (
                 <ul>
                     {searchedProducts.map((product) => (

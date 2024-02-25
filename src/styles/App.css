@@ -6,15 +6,11 @@
 @import url('productsDetail.css');
 @import url('globals.css');
 @import url('cart.css');
+@import url('searchbar.css');
+@import url('colors.css');
 
-body {
-  /* background: #f1f1f1; */
-}
 
 .header--routes {
-  /* position: fixed;
-  top: 0%;
-  left: 43%; */
   display: flex;
   justify-content: center;
   align-items: center;

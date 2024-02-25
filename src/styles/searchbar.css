@@ -1,0 +1,15 @@
+.searchbar--products {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.searchbar--products img {
+    width: 50px;
+}
+
+/* Component */

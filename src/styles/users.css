@@ -15,8 +15,7 @@
 
 .users__img {
 
-    width: 40%;
-    height: 40%;
+    width: 17%;
 }
 
 .users__li {
@@ -36,11 +35,17 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(0, 174, 255);
+    background-color: var(--primary-color);
+    color: white;
     font-size: 16px;
     cursor: pointer;
     backface-visibility: hidden;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.users__button a {
+    color: white;
+    font-weight: 500;
 }
 
 .users__button:hover {
@@ -48,4 +53,12 @@
     font-size: 17px;
     color: #080808;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+@media screen and (max-width: 845px) {
+    .users__img {
+        margin-top: 30%;
+        margin-bottom: 5%;
+        width: 50%;
+    }
 }

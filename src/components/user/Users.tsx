@@ -5,7 +5,7 @@ export const User: React.FC<{ user: UserType, handleLogout: () => void }> = ({ u
   return (
         <>
             <main className="users">
-                <img className="users__img" src="../src/assets/user-profile-flatline.svg" alt="user-profile image" />
+                <img className="users__img" src="../src/assets/pink-user4.webp" alt="user-profile image" />
                 <li key={user.id} className="users__li">
                     <h3>{user.name}</h3>
                     <p>{user.email}</p>
