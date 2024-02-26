@@ -1,8 +1,14 @@
+.searchbar {
+    align-self: center;
+    margin-top: 0.7%;
+    margin-bottom: 4%;
+}
+
 .searchbar--products {
     position: fixed;
-    z-index: 100;
+    z-index: 3;
     display: flex;
-    width: 10%;
+    width: 8%;
     flex-direction: column;
     margin-top: 10px;
     margin-bottom: 10px;

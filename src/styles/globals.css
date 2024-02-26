@@ -520,8 +520,8 @@ span.text-red {
     display: flex;
     gap: 40px;
     margin: 40px;
-    margin-top: 60px;
-    margin-left: 150px;
+    margin-top: 150px;
+    margin-left: 250px;
     color: #324d67;
 
 }
