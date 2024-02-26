@@ -11,10 +11,14 @@
 
 
 .header--routes {
+  position: fixed;
+  top: 1%;
+  left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  transform: translateX(-50%);
+  z-index: 1001;
 }
 
 .hide {
@@ -30,21 +34,23 @@
 @media screen and (max-width: 845px) {
   .header--routes {
     position: fixed;
-    bottom: 0.5%;
+    top: 90%;
     left: 8.7%;
     background-color: rgba(255, 255, 255, 0.838);
     border-radius: 3px;
     display: flex;
     width: 320px;
+    height: 50px;
     justify-content: center;
     align-items: center;
+    transform: none;
     z-index: 5;
     border: 0.5px black solid;
   }
 
   .cart-icon {
     position: fixed;
-    top: -740px;
+    top: 10px;
     left: 320px;
   }
 }

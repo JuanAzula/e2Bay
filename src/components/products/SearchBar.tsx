@@ -4,7 +4,7 @@ import { type Product } from '../../interfaces/productsType'
 import { StyledSearchbar } from '../StyledSearchbar'
 
 function SearchBar ({ products }: { products: Product[] | undefined }) {
-  const { setSearchTerms, searchProducts, searchedProducts, setSearchedProducts } = useSearch()
+  const { setSearchTerms, searchProducts, searchedProducts } = useSearch()
   // const [searchValue, setSearchValue] = useState('')
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value
@@ -12,14 +12,13 @@ function SearchBar ({ products }: { products: Product[] | undefined }) {
 
     console.log('searchterm:', searchTerm)
 
-    if (searchTerm.length !== 0) {
+    if (searchTerm.length !== 0 && products !== undefined) {
       setSearchTerms(searchTerm)
       searchProducts(products)
     } else {
       console.log('está vacío')
       searchProducts([])
       localStorage.removeItem('searchedProducts')
-      // setSearchedProducts([])
       setSearchTerms('')
     }
   }
@@ -30,7 +29,7 @@ function SearchBar ({ products }: { products: Product[] | undefined }) {
         <div className="searchbar">
             <StyledSearchbar type="search" placeholder="Search..." onChange={handleSearch} />
             <div className='searchbar--products'>
-              {searchedProducts?.map((product) => (
+              {searchedProducts?.map((product: { id: string, name: string, image: string }) => (
                 <div key={product.id} >
                   <Link to={`/products/${product.id}`}>
                   <img src={product.image} alt="" />
@@ -39,16 +38,6 @@ function SearchBar ({ products }: { products: Product[] | undefined }) {
                 </div>
               ))}
               </div>
-            {/* {searchedProducts && searchedProducts.length > 0 && (
-                <ul>
-                    {searchedProducts.map((product) => (
-                        <li key={product.id}>
-                            {/* Use Link to navigate to the product detail route */}
-                            {/* <Link to={`/products/${product.id}`}>{product.name}</Link>
-                        </li>
-                    ))}
-                </ul>
-            )} */}
         </div>
   )
 }

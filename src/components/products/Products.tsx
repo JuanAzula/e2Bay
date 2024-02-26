@@ -22,10 +22,12 @@ export function Products ({ products }: { products: ProductsType['products'] | u
                                 <img className="products__img" src={product.image}
                                     alt={product.name}
                                 />
-                                <div>
-                                    <strong>{product.name}</strong> <span>${product.price}</span>
-                                </div>
                             </StyledLink>
+                                <div>
+                                <StyledLink to={`/products/${product.id}`}>
+                                    <strong>{product.name}</strong> <span>${product.price}</span>
+                                </StyledLink>
+                                </div>
                         </li>
                   )
                 })}

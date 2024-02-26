@@ -2,9 +2,13 @@
     position: fixed;
     z-index: 100;
     display: flex;
+    width: 10%;
     flex-direction: column;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
 
 }
 
@@ -12,4 +16,12 @@
     width: 50px;
 }
 
-/* Component */
+.searchbar--products div a {
+    width: 50px;
+}
+
+@media screen and (max-width: 845px) {
+    .searchbar--products {
+        width: 45%;
+    }
+}

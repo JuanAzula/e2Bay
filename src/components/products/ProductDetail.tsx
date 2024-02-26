@@ -47,7 +47,7 @@ export const ProductDetail = ({ products }: { products: ProductsType['products']
                             <ul>
                                 <li className="product-detail-container" key={foundProduct.id}>
                                     <div className="image-container">
-                                        <img className="product-image" src={foundProduct.image} alt={foundProduct.name} />
+                                        <img className="product__img--detail" src={foundProduct.image} alt={foundProduct.name} />
                                     </div>
                                     <div className="product-detail-desc">
                                         <h1>{foundProduct.name}</h1>

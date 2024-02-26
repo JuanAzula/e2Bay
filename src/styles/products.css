@@ -1,5 +1,6 @@
 .products {
     display: flex;
+    margin-top: 4%;
     width: 100%;
     flex-direction: column;
 }
@@ -11,10 +12,32 @@
 
 .product-cart-image {
     width: 80px;
+    align-self: center;
+}
+
+
+.product__img--detail {
+    width: 500px;
 }
 
 .searchbar {
     align-self: center;
     margin-top: 0.7%;
     margin-bottom: 4%;
+}
+
+.cart-container a {
+    align-self: center;
+    width: 80px;
+}
+
+@media screen and (max-width: 845px) {
+    .product__img--detail {
+        width: 350px;
+        margin-left: 0px;
+    }
+
+    .products {
+        margin-top: 16%;
+    }
 }

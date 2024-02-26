@@ -23,7 +23,7 @@
 
 .login-form {
     /* position: relative; */
-    width: 45%;
+    width: 30%;
     height: 20%;
     display: flex;
     flex-direction: column;
@@ -59,8 +59,11 @@
 }
 
 .button {
-    margin-top: 20px;
-    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px 20px;
     border: none;
     border-radius: 5px;
     background-color: #ffb5d2;
@@ -76,6 +79,18 @@
     font-size: 17px;
     color: #080808;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.error-password {
+    position: fixed;
+    bottom: 0;
+    color: aqua;
+}
+
+.error-email {
+    position: fixed;
+    bottom: 17px;
+    color: aqua;
 }
 
 @media screen and (max-width: 845px) {

@@ -36,7 +36,7 @@ function CartItem ({ image, price, name, quantity, addToCart, decreaseQuantity, 
                 <strong>{name}</strong>
                 <br />
             </div>
-                <span style={{ marginLeft: '4.9%' }}>${price}</span>
+                <span>${price}</span>
             <footer className="cart--quantity">
                 <small>
                     Quantity: {quantity}
@@ -73,33 +73,10 @@ const Cart: React.FC = () => {
 
   const cartContainerId = useId()
 
-  // const checkProductInCart = () => {
-  //   return cart.some()
-  // }
-
-  // const handleClickOutsideCart = (event: MouseEvent) => {
-  //   if (cartWrapperRef.current && event.target !== document.getElementById(cartContainerId) &&
-  //           !cartWrapperRef.current.contains(event.target) && event.target !== document.getElementById(cartSvgId)) {
-  //     setCartVisible(false)
-  //     console.log(window.localStorage.getItem('totalPrice'))
-  //     setTotalPrice(window.localStorage.getItem('totalPrice'))
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   if (!checkProductInCart) {
-  //     setCartVisible(false)
-  //   }
-  //   document.addEventListener('click', handleClickOutsideCart)
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutsideCart)
-  //   }
-  // }, [])
-
   return (
         <div>
             <button className='cart-icon' type='button' style={{ marginLeft: '10px', cursor: 'pointer' }}>
-                <svg id={cartSvgId} onClick={toggleCartVisibility} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="32" height="32" viewBox="0 0 24 24" strokeWidth="0.9" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                <svg id={cartSvgId} onClick={toggleCartVisibility} xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="42" height="42" viewBox="0 0 24 24" strokeWidth="0.9" stroke="#fff" fill="none" strokeLinecap="round" strokeLinejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                     <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />

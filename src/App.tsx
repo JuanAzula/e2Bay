@@ -1,6 +1,6 @@
 import './styles/App.css'
 import { Products } from './components/products/Products'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import { User } from './components/user/Users'
 import { Home } from './components/home/Home'
 import Wishlist from './components/Wishlist'
@@ -11,7 +11,7 @@ import { Cart, Navbar } from './components/globals'
 import { useFilters } from './hooks/useFilters'
 import { getProducts } from './services/ProductService'
 import { useQuery } from '@tanstack/react-query'
-import { addWishlist, getUsers as fetchUsers } from './services/UserService'
+import { getUsers as fetchUsers } from './services/UserService'
 
 const getUser = () => {
   const loggedUserJSON = window.localStorage.getItem('userLogged')
@@ -39,11 +39,6 @@ export default function App () {
     queryKey: ['users'],
     queryFn: async () => await fetchUsers()
   })
-  const queryWishlist = useQuery({
-    queryKey: ['wishlist'],
-    queryFn: async () => { await addWishlist(queryUserLogged.data.id, 'f91eb86a8f6c973d5e8780a7c', wishlistProduct('f91eb86a8f6c973d5e8780a7c')) }
-  })
-  console.log(queryWishlist.data)
 
   const queryUserLogged = useQuery({
     queryKey: ['user'],
@@ -64,7 +59,12 @@ export default function App () {
       if (user) {
         window.localStorage.setItem('userLogged', JSON.stringify(user))
         void queryUserLogged.refetch()
-      } return user
+        const navigate = useNavigate()
+        navigate('/')
+      } else {
+        alert('Invalid username or password')
+      }
+      return user
     } else {
       console.log('Login failed')
     }

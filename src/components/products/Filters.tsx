@@ -2,6 +2,8 @@ import { useId } from 'react'
 import '../../styles/filters.css'
 import { useFilters } from '../../hooks/useFilters'
 import { type Product } from '../../interfaces/productsType'
+import { StyledRange } from '../StyledRange'
+import { StyledSelect } from '../StyledSelect'
 export function Filters () {
   const { filters, setFilters }: { filters: any, setFilters: any } = useFilters()
 
@@ -29,7 +31,7 @@ export function Filters () {
         <section className="filters">
             <div className="filter">
                 <label htmlFor="{minPriceFilterId}">Price</label>
-                <input
+                <StyledRange
                     type='range'
                     name="price"
                     id={minPriceFilterId}
@@ -41,13 +43,13 @@ export function Filters () {
             </div>
             <div className="filter">
                 <label htmlFor="{categoryFilterId}">Category</label>
-                <select name="category" id={categoryFilterId} onChange={handleChangeCategory}>
+                <StyledSelect name="category" id={categoryFilterId} onChange={handleChangeCategory}>
                     <option value="all">All</option>
                     <option value="smartphones">Smartphones</option>
                     <option value="headsets">Headsets</option>
                     <option value="laptops">Laptops</option>
                     <option value="speakers">Speakers</option>
-                </select>
+                </StyledSelect>
             </div>
         </section>
   )

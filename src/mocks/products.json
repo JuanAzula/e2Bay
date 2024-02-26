@@ -66,7 +66,7 @@
         },
         {
             "id": "64c9faed738507dddf3c73c",
-            "name": "Iphone 17",
+            "name": "Iphone XYZ",
             "price": 1100,
             "stock": 50,
             "image": "../src/assets/iphoneX.png",
@@ -104,6 +104,31 @@
             "image": "../src/assets/boatpods.webp",
             "description": "Boat b6 is a high-quality product with great features.",
             "category": "headphones",
+            "brand": "Brand_ABC",
+            "rating": 4.0,
+            "quantity": 0,
+            "reviews": [
+                {
+                    "id": 3,
+                    "userId": 1,
+                    "rating": 4,
+                    "comment": "Nice product. Worth the price.",
+                    "date": "2023-08-03"
+                }
+            ],
+            "filters": [
+                "topsales",
+                "discounts"
+            ]
+        },
+        {
+            "id": "f91eb86a8f6c8932742973d5e8780a7c",
+            "name": "Asus Zenbook",
+            "price": 1550,
+            "stock": 59,
+            "image": "../src/assets/asus-zenbook.webp",
+            "description": "Asus Zenbook is a high-quality product with great features.",
+            "category": "laptops",
             "brand": "Brand_ABC",
             "rating": 4.0,
             "quantity": 0,
