@@ -21,7 +21,6 @@
 .searchbar:focus-within .searchbar--products,
 .searchbar--products:focus-within {
     border: 1px solid var(--primary-color);
-    /* Show border when .searchbar or .searchbar--products is focused */
 }
 
 .searchbar--products img {

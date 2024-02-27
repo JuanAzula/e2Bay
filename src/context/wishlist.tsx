@@ -8,13 +8,7 @@ function useWishlistReducer () {
   const wishlistChecked = initialWishlist ? JSON.parse(initialWishlist) : []
   const [wishlist, setWishlist] = useState(wishlistChecked)
   const user = window.localStorage.getItem('userLogged')
-  console.log('wishlist:', wishlist)
-  console.log(user)
   const userObject = JSON.parse(user || '{}')
-
-  for (const p in userObject?.wishlist) {
-    console.log(userObject.wishlist[p])
-  }
 
   const addToWishlist = (product: Product) => {
     // Check if the product is already in the wishlist

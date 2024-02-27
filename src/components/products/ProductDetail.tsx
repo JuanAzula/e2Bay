@@ -13,7 +13,6 @@ export const ProductDetail = ({ products }: { products: ProductsType['products']
   const { cart, addToCart, decreaseQuantity, setTotalPrice } = useCart()
   const ProductinCart = cart.find((product: Product) => product.id === productId)
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist()
-  console.log(wishlist)
   const checkProductInWishlist = () => {
     if (wishlist.find((product: Product) => product.id === productId)) {
       return true

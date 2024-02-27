@@ -8,22 +8,16 @@ function SearchBar ({ products }: { products: Product[] | undefined }) {
   // const [searchValue, setSearchValue] = useState('')
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value
-    console.log('valor de busqueda', searchTerm)
-
-    console.log('searchterm:', searchTerm)
 
     if (searchTerm.length !== 0 && products !== undefined) {
       setSearchTerms(searchTerm)
       searchProducts(products)
     } else {
-      console.log('está vacío')
       searchProducts([])
       localStorage.removeItem('searchedProducts')
       setSearchTerms('')
     }
   }
-
-  console.log('bobi', searchedProducts)
 
   return (
         <div className="searchbar">

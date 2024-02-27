@@ -11,11 +11,9 @@ export const useSearch = () => {
         productsList.push(product)
       }
       localStorage.setItem('searchedProducts', JSON.stringify(productsList))
-      console.log(productsList)
     })
     setSearchedProducts(productsList)
     if (productsList.length === 0) {
-      console.log('productsList vacío')
       localStorage.removeItem('searchedProducts')
       setSearchedProducts([])
     }

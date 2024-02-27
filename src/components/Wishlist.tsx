@@ -5,7 +5,6 @@ import { StyledCard } from './StyledCard'
 
 export default function Wishlist () {
   const { wishlist } = useWishlist()
-  console.log(wishlist)
 
   const { removeFromWishlist } = useWishlist()
 

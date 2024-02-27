@@ -31,7 +31,6 @@ export default function App () {
   const wishlistProduct = (id: string) => {
     const products = queryProduct.data
     const foundProduct = products?.filter(product => product.id === id)
-    console.log(foundProduct)
     return foundProduct
   }
   wishlistProduct('f91eb86a8f6c973d5e8780a7c')
@@ -66,7 +65,7 @@ export default function App () {
       }
       return user
     } else {
-      console.log('Login failed')
+      alert('Login failed')
     }
   }
   const handleLogout = () => {
