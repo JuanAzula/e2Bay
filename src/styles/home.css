@@ -30,4 +30,8 @@
         height: 3%;
         width: 98%;
     }
+
+    .products-container {
+        margin-bottom: 25px;
+    }
 }

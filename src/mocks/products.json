@@ -5,7 +5,7 @@
             "name": "Apple Vision Pro",
             "price": 3600,
             "stock": 50,
-            "image": "../src/assets/applevisionpro3.png",
+            "image": "../src/assets/applevisionpro.webp",
             "description": "This is Apple vision pro. It's a great product for your needs.",
             "category": "headsets",
             "brand": "Brand_XYZ",

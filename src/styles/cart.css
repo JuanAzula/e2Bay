@@ -32,6 +32,11 @@
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
+.cart--remove:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
 .cart--clear {
     padding: 7px 10px;
     margin-top: 13%;
@@ -42,11 +47,16 @@
     margin-left: 5%;
     border: none;
     border-radius: 5px;
-    background-color: white;
-    color: #f20179;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     cursor: pointer;
     backface-visibility: hidden;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cart--clear:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .cart--buy {

@@ -4,10 +4,9 @@ const Banner = () => {
   return (
         <div className='hero-banner-container'>
             <div>
-                {/* <p className='beats-solo'>Sony 13TZ</p> */}
                 <h3>SpringSummer</h3>
                 <h1>SALE</h1>
-                <img src="../src/assets/applevisionpro3.png" alt="headphones"
+                <img src="../src/assets/applevisionpro.webp" alt="headphones"
                     className='hero-banner-image' />
                 <div>
                     <Link to="/products">

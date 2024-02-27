@@ -6,7 +6,7 @@
 
 .searchbar--products {
     position: fixed;
-    z-index: 3;
+    z-index: 10;
     display: flex;
     width: 8%;
     flex-direction: column;
@@ -14,8 +14,14 @@
     margin-bottom: 10px;
     background-color: white;
     border-radius: 8px;
-    border: 1px solid var(--primary-color);
+    border: none;
 
+}
+
+.searchbar:focus-within .searchbar--products,
+.searchbar--products:focus-within {
+    border: 1px solid var(--primary-color);
+    /* Show border when .searchbar or .searchbar--products is focused */
 }
 
 .searchbar--products img {
@@ -26,8 +32,23 @@
     width: 50px;
 }
 
+@media screen and (max-width: 1600px) {
+    .searchbar--products {
+        width: 15%;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .searchbar--products {
+        width: 15.5%;
+    }
+
+}
+
 @media screen and (max-width: 845px) {
     .searchbar--products {
         width: 45%;
+        z-index: 3
     }
 }

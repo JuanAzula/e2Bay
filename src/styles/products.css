@@ -1,12 +1,12 @@
 .products {
     display: flex;
-    margin-top: 4%;
+    margin-top: 6%;
     width: 100%;
     flex-direction: column;
 }
 
 .products__img {
-    width: 100%;
+    width: 186px;
     /* height: 200px; */
 }
 
@@ -41,10 +41,24 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 1600px) {
+    .card-container {
+        width: 20%;
+        justify-content: center;
+    }
+
+}
+
 @media screen and (max-width: 845px) {
     .product__img--detail {
         width: 350px;
         margin-left: 0px;
+    }
+
+
+
+    .products__img {
+        width: 189px;
     }
 
     .products {
