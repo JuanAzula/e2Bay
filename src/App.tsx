@@ -28,12 +28,6 @@ export default function App () {
   }
   )
 
-  const wishlistProduct = (id: string) => {
-    const products = queryProduct.data
-    const foundProduct = products?.filter(product => product.id === id)
-    return foundProduct
-  }
-  wishlistProduct('f91eb86a8f6c973d5e8780a7c')
   const queryUsers = useQuery({
     queryKey: ['users'],
     queryFn: async () => await fetchUsers()

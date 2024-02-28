@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!)?.render(
   <QueryClientProvider client={queryClient}>
   <PayPalScriptProvider
   options={{
-    clientId: 'AWE5xHV0s2idwDLw6ftA1159Vuur5ZYzseJAIJOXD7o0mBnVixK1Jh-gVN9x7NsSX8a-amA3i8NDnkBm'
+    'client-id': 'AWE5xHV0s2idwDLw6ftA1159Vuur5ZYzseJAIJOXD7o0mBnVixK1Jh-gVN9x7NsSX8a-amA3i8NDnkBm'
   }}
   >
 

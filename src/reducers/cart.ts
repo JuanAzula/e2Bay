@@ -1,8 +1,6 @@
 /* eslint-disable no-case-declarations */
 
-import { type Product } from '../interfaces/productsType'
-import { type CartAction } from '../types/cart'
-
+import { type Product, type CartAction } from '../interfaces/productsType'
 export const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
   REMOVE_FROM_CART: 'REMOVE_FROM_CART',
