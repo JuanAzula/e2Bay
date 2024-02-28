@@ -7,18 +7,13 @@ function useWishlistReducer () {
   const initialWishlist = window.localStorage.getItem('wishlist')
   const wishlistChecked = initialWishlist ? JSON.parse(initialWishlist) : []
   const [wishlist, setWishlist] = useState(wishlistChecked)
-  const user = window.localStorage.getItem('userLogged')
-  const userObject = JSON.parse(user || '{}')
 
   const addToWishlist = (product: Product) => {
-    // Check if the product is already in the wishlist
     if (wishlist.find((item: Product) => item.id === product.id)) {
       return
     }
 
-    userObject.wishlist.push(product)
     window.localStorage.setItem('wishlist', JSON.stringify([...wishlist, product]))
-    window.localStorage.setItem('userLogged', JSON.stringify(userObject))
     setWishlist([...wishlist, product])
   }
 
@@ -28,14 +23,15 @@ function useWishlistReducer () {
     setWishlist(newWishlist)
   }
 
-  return { wishlist, addToWishlist, removeFromWishlist }
+  return { wishlist, setWishlist, addToWishlist, removeFromWishlist }
 }
 
 export function WishlistProvider ({ children }: { children: React.ReactNode }) {
-  const { wishlist, addToWishlist, removeFromWishlist } = useWishlistReducer()
+  const { wishlist, addToWishlist, removeFromWishlist, setWishlist } = useWishlistReducer()
   return (
                 <WishlistContext.Provider value={{
                   wishlist,
+                  setWishlist,
                   addToWishlist,
                   removeFromWishlist
                 }}>

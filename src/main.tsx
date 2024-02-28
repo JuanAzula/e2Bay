@@ -9,11 +9,12 @@ import { WishlistProvider } from './context/wishlist.tsx'
 
 const queryClient = new QueryClient()
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+ReactDOM.createRoot(document.getElementById('root')!)?.render(
   <QueryClientProvider client={queryClient}>
   <PayPalScriptProvider
   options={{
-    'client-id': 'AWE5xHV0s2idwDLw6ftA1159Vuur5ZYzseJAIJOXD7o0mBnVixK1Jh-gVN9x7NsSX8a-amA3i8NDnkBm'
+    clientId: 'AWE5xHV0s2idwDLw6ftA1159Vuur5ZYzseJAIJOXD7o0mBnVixK1Jh-gVN9x7NsSX8a-amA3i8NDnkBm'
   }}
   >
 
@@ -26,6 +27,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </CartProvider>
   </PayPalScriptProvider>
   </QueryClientProvider>
-  // </Router>
 
 )

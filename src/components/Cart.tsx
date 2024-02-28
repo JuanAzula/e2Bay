@@ -91,7 +91,7 @@ const Cart: React.FC = () => {
                 </label>
 
                 <aside ref={cartWrapperRef} className={cartVisible ? 'cart' : 'hide'}>
-                    <ul>
+                    <ul key={cart?.length}>
                         {cart.map((product: JSX.IntrinsicAttributes & Product) => (
                             <>
                                 <CartItem
