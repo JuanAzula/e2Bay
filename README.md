@@ -1,4 +1,4 @@
-# e2bay
+# e2Bay
 
 This project is a React e-commerce application built with Typescript and leverages best practices for modern web development.
 
